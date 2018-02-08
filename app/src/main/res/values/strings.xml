@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WhoseTweetIsThatAppThing</string>
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">EoO7nlYWOHRitztJ9r73MHTKe</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">hX7fXV7NlmihpWIugeIPotQvVmTv9P079vKAaZaU00Dg4gKTFh</string>
 </resources>
