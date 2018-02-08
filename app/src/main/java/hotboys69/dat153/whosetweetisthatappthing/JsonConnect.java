@@ -5,14 +5,8 @@ import android.util.Log;
 
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.*;
+import java.net.*;
 import java.util.ArrayList;
 
 /**
@@ -43,12 +37,19 @@ public class JsonConnect {
             //URL url = new URL("http://api.twitter.com/1.1/search/tweets.json");
             URL url = new URL("http://ip.jsontest.com/?callback=showMyIP");
             connection = (HttpURLConnection) url.openConnection();
+            Log.w("lol", connection.getRequestMethod());
             Log.w("lol", connection.toString());
-            connection.connect();
+            Log.w("lol", connection.getResponseMessage());
+            Log.w("lol", String.valueOf(connection.getContentLength()));
 
 
             InputStream in = new BufferedInputStream(connection.getInputStream());
+
+            Log.w("lul", in.toString());
+
             reader = new BufferedReader(new InputStreamReader(in));
+
+            Log.w("lmao", reader.toString());
 
             String line = "";
             while((line = reader.readLine()) != null){
