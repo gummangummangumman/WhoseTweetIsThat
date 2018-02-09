@@ -29,6 +29,16 @@ public class Data {
         //Dalai Lama
         arrayList.add("DalaiLama");
 
+        //Neil deGrasse Tyson
+        arrayList.add("neiltyson");
+
+        //Elon Musk
+        arrayList.add("elonmusk");
+
+        //Rihanna
+        arrayList.add("rihanna");
+
+
         return arrayList;
     }
 
