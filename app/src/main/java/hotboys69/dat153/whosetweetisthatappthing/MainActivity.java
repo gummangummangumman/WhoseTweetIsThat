@@ -3,6 +3,7 @@ package hotboys69.dat153.whosetweetisthatappthing;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         for(String s:Data.users){
-            TwitterConnect.getRandomTweet(s);
+            TwitterConnect.getRandomTweet(s, this);
         }
     }
 
@@ -38,5 +39,13 @@ public class MainActivity extends AppCompatActivity {
         for(String s:tweets){
             Log.w("mainActivity", s);
         }
+    }
+
+    /**
+     * @param tweet
+     */
+    public void setTweet(String tweet){
+        TextView helloWorld = findViewById(R.id.helloWorld);
+        helloWorld.setText(tweet);
     }
 }

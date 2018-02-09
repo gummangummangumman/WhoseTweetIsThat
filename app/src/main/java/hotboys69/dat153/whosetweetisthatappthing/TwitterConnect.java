@@ -1,5 +1,6 @@
 package hotboys69.dat153.whosetweetisthatappthing;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.twitter.sdk.android.core.Callback;
@@ -10,6 +11,7 @@ import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.models.Tweet;
 import com.twitter.sdk.android.core.services.StatusesService;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 import retrofit2.Call;
@@ -22,8 +24,10 @@ public class TwitterConnect {
 
     public MainActivity activity;
 
-    public static String getRandomTweet(String username)
+    public static String getRandomTweet(String username, MainActivity view)
     {
+        final WeakReference<MainActivity> callback = new WeakReference<MainActivity>(view);
+
         TwitterApiClient twitterApiClient = TwitterCore.getInstance().getApiClient();
         StatusesService statusesService = twitterApiClient.getStatusesService();
         Call<List<Tweet>> call = statusesService.userTimeline(null, username, null, null, null, null, null, null, null);
@@ -35,6 +39,7 @@ public class TwitterConnect {
                 Log.w("userAvatar", result.data.get(0).user.profileImageUrl);
                 Log.w("randomTweet", randomTweet);
                 Log.w("howManyTweets", String.valueOf(result.data.size()));
+                callback.get().setTweet(randomTweet);
             }
 
             public void failure(TwitterException exception) {
