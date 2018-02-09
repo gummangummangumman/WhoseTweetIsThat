@@ -10,6 +10,10 @@ public class Data {
 
     public static ArrayList<String> users = init();
 
+    public static ArrayList<String> musicians = musicians();
+
+
+
     public static ArrayList<String> init()
     {
         ArrayList<String> arrayList = new ArrayList<String>();
@@ -38,6 +42,25 @@ public class Data {
         //Rihanna
         arrayList.add("rihanna");
 
+
+        return arrayList;
+    }
+
+    public static ArrayList<String> musicians()
+    {
+        ArrayList<String> arrayList = new ArrayList<String>();
+
+        //Jaden Smith
+        arrayList.add("officialjaden");
+
+        //Rihanna
+        arrayList.add("rihanna");
+
+        //Snoop Dogg
+        arrayList.add("SnoopDogg");
+
+        //Pitbull
+        arrayList.add("pitbull");
 
         return arrayList;
     }

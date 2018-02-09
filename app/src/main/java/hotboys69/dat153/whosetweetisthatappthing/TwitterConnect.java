@@ -24,10 +24,9 @@ public class TwitterConnect {
 
     public MainActivity activity;
 
-    public static String getRandomTweet(String username, MainActivity view)
+    public static void getRandomTweet(String username, GameActivity view)
     {
-        final WeakReference<MainActivity> callback = new WeakReference<MainActivity>(view);
-
+        final WeakReference<GameActivity> callback = new WeakReference<GameActivity>(view);
         TwitterApiClient twitterApiClient = TwitterCore.getInstance().getApiClient();
         StatusesService statusesService = twitterApiClient.getStatusesService();
         Call<List<Tweet>> call = statusesService.userTimeline(null, username, null, null, null, null, null, null, null);
@@ -36,17 +35,42 @@ public class TwitterConnect {
             public void success(Result<List<Tweet>> result) {
                 String randomTweet = result.data.get((int) Math.floor(Math.random() * result.data.size())).text;
                 Log.w("username", result.data.get(0).user.name);
-                Log.w("userAvatar", result.data.get(0).user.profileImageUrl);
+                Log.w("userAvatar", result.data.get(0).user.profileImageUrlHttps);
                 Log.w("randomTweet", randomTweet);
                 Log.w("howManyTweets", String.valueOf(result.data.size()));
                 callback.get().setTweet(randomTweet);
             }
 
+            @Override
             public void failure(TwitterException exception) {
                 Log.w("fail", "it failz");
             }
         });
-        return "lol";
+    }
+
+    /**
+     *
+     * @param username the @ of the user
+     * @param view GameActivity
+     * @param which which of the 4 places it's at
+     */
+    public static void setUserInformation(String username, GameActivity view, int which) {
+        final WeakReference<GameActivity> callback = new WeakReference<GameActivity>(view);
+        TwitterApiClient twitterApiClient = TwitterCore.getInstance().getApiClient();
+        StatusesService statusesService = twitterApiClient.getStatusesService();
+        Call<List<Tweet>> call = statusesService.userTimeline(null, username, null, null, null, null, null, null, null);
+        call.enqueue(new Callback<List<Tweet>>() {
+            @Override
+            public void success(Result<List<Tweet>> result) {
+                //String randomTweet = result.data.get((int) Math.floor(Math.random() * result.data.size())).text;
+                //callback.get().setTweet(randomTweet);
+            }
+
+            @Override
+            public void failure(TwitterException exception) {
+                Log.w("fail", "it failz");
+            }
+        });
     }
 
 }
