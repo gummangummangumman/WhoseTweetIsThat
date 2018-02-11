@@ -56,14 +56,14 @@ public class TwitterConnect {
      */
     public static void setUserInformation(String username, GameActivity view, int which) {
         final WeakReference<GameActivity> callback = new WeakReference<GameActivity>(view);
+        final int place = which;
         TwitterApiClient twitterApiClient = TwitterCore.getInstance().getApiClient();
         StatusesService statusesService = twitterApiClient.getStatusesService();
         Call<List<Tweet>> call = statusesService.userTimeline(null, username, null, null, null, null, null, null, null);
         call.enqueue(new Callback<List<Tweet>>() {
             @Override
             public void success(Result<List<Tweet>> result) {
-                //String randomTweet = result.data.get((int) Math.floor(Math.random() * result.data.size())).text;
-                //callback.get().setTweet(randomTweet);
+                callback.get().setUserInformation(result.data.get(0).user.name, result.data.get(0).user.profileImageUrl, place);
             }
 
             @Override
