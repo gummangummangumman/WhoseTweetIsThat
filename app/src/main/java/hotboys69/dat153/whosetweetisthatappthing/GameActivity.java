@@ -63,12 +63,14 @@ public class GameActivity extends AppCompatActivity {
 
         if(Math.random() > 0.5) //50% chance of musicians
         {
-            correctUserName = Data.musicians.get((int) Math.floor(Math.random() * Data.musicians.size()));
+            int whichTweeter = (int) Math.floor(Math.random() * Data.musicians.size());
+            correctUserName = Data.musicians.get(whichTweeter);
             for(int i=0;i<4;i++){
                 TwitterConnect.setUserInformation(Data.musicians.get(i), this);
             }
         }else{
-            correctUserName = Data.users.get((int) Math.floor(Math.random() * Data.users.size()));
+            int whichTweeter = (int) Math.floor(Math.random() * Data.users.size());
+            correctUserName = Data.users.get(whichTweeter);
             for(int i=0;i<4;i++){
                 TwitterConnect.setUserInformation(Data.users.get(i), this);
             }
@@ -96,15 +98,19 @@ public class GameActivity extends AppCompatActivity {
 
         if(where==0){
             userName1.setText(name);
+            new ImageDownloader.DownloadPictureTask1(this).execute(picture);
             where++;
         }else if(where==1){
             userName2.setText(name);
+            new ImageDownloader.DownloadPictureTask2(this).execute(picture);
             where++;
         }else if(where==2){
             userName3.setText(name);
+            new ImageDownloader.DownloadPictureTask3(this).execute(picture);
             where++;
         }else if(where==3){
             userName4.setText(name);
+            new ImageDownloader.DownloadPictureTask4(this).execute(picture);
             where++;
         }else{
             Log.e("Error", "that place to put the information does not exist: " + where);
