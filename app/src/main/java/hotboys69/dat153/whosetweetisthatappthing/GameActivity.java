@@ -28,6 +28,8 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        Twitter.initialize(this);
+
         userName1 = findViewById(R.id.userTweet1);
         userName2 = findViewById(R.id.userTweet2);
         userName3 = findViewById(R.id.userTweet3);
@@ -81,7 +83,5 @@ public class GameActivity extends AppCompatActivity {
             case 3: userName4.setText(name);
             default: Log.w("error", "that place to put the information does not exist!");
         }
-
-
     }
 }

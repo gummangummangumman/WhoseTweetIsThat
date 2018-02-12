@@ -1,6 +1,6 @@
 package hotboys69.dat153.whosetweetisthatappthing;
 
-import android.content.Context;
+
 import android.util.Log;
 
 import com.twitter.sdk.android.core.Callback;
