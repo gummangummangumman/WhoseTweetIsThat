@@ -52,18 +52,16 @@ public class TwitterConnect {
      *
      * @param username the @ of the user
      * @param view GameActivity
-     * @param which which of the 4 places it's at
      */
-    public static void setUserInformation(String username, GameActivity view, int which) {
+    public static void setUserInformation(String username, GameActivity view) {
         final WeakReference<GameActivity> callback = new WeakReference<GameActivity>(view);
-        final int place = which;
         TwitterApiClient twitterApiClient = TwitterCore.getInstance().getApiClient();
         StatusesService statusesService = twitterApiClient.getStatusesService();
         Call<List<Tweet>> call = statusesService.userTimeline(null, username, null, null, null, null, null, null, null);
         call.enqueue(new Callback<List<Tweet>>() {
             @Override
             public void success(Result<List<Tweet>> result) {
-                callback.get().setUserInformation(result.data.get(0).user.name, result.data.get(0).user.profileImageUrl, place);
+                callback.get().setUserInformation(result.data.get(0).user.name, result.data.get(0).user.profileImageUrl);
             }
 
             @Override
