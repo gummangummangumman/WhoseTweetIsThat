@@ -61,7 +61,7 @@ public class TwitterConnect {
         call.enqueue(new Callback<List<Tweet>>() {
             @Override
             public void success(Result<List<Tweet>> result) {
-                callback.get().setUserInformation(result.data.get(0).user.name, result.data.get(0).user.profileImageUrl);
+                callback.get().setUserInformation(result.data.get(0).user.name, result.data.get(0).user.profileImageUrl, result.data.get(0).user.screenName);
             }
 
             @Override
