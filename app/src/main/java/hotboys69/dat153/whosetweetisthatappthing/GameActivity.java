@@ -59,23 +59,18 @@ public class GameActivity extends AppCompatActivity {
      */
     public void showNewTweet()
     {
-        //TODO fix usernamesToGuessFrom
+        //generate 4 random tweeters
+        ArrayList<String> tweetersToGuessFrom = RandomTweeters.getRandomTweeters();
 
-        if(Math.random() > 0.5) //50% chance of musicians
-        {
-            int whichTweeter = (int) Math.floor(Math.random() * Data.musicians.size());
-            correctUserName = Data.musicians.get(whichTweeter);
-            for(int i=0;i<4;i++){
-                TwitterConnect.setUserInformation(Data.musicians.get(i), this);
-            }
-        }else{
-            int whichTweeter = (int) Math.floor(Math.random() * Data.users.size());
-            correctUserName = Data.users.get(whichTweeter);
-            for(int i=0;i<4;i++){
-                TwitterConnect.setUserInformation(Data.users.get(i), this);
-            }
+        //choose one as the correct one
+        correctUserName = RandomTweeters.getRandomTweeter(tweetersToGuessFrom);
+
+        //get all the names and images for the 4 tweeters to guess from
+        for(String s:tweetersToGuessFrom){
+            TwitterConnect.setUserInformation(s, this);
         }
 
+        //get the correct tweet
         TwitterConnect.getRandomTweet(correctUserName, this);
     }
 
