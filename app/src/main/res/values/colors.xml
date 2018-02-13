@@ -7,4 +7,6 @@
     <color name="twitterOfficialLight">#e1e8ed</color>
     <color name="twitterOfficialWhite">#f5f8fa</color>
     <color name="twitterOfficialBlack">#14171a</color>
+    <color name="twitterOfficialLightGrey">#aab8c2</color>
+    <color name="twitterOfficialDarkGrey">#657786</color>
 </resources>
