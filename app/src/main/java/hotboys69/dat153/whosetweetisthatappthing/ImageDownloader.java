@@ -23,6 +23,9 @@ import java.net.URL;
 
 public class ImageDownloader {
 
+
+    final int IMAGE_BOUND_SIZE = 200;
+
     /**
      *
      * @param url the url to the profile picture on twitter
@@ -67,7 +70,8 @@ public class ImageDownloader {
 
         @Override
         protected void onPostExecute(Drawable result) {
-            callback.get().image1.setImageDrawable(result);
+            result.setBounds(0, 0, 160, 160);
+            callback.get().button1.setCompoundDrawables(result, null, null, null);
         }
     }
 
@@ -96,7 +100,9 @@ public class ImageDownloader {
 
         @Override
         protected void onPostExecute(Drawable result) {
-            callback.get().image2.setImageDrawable(result);
+            //callback.get().image2.setImageDrawable(result);
+            result.setBounds(0, 0, 200, 200);
+            callback.get().button2.setCompoundDrawables(result, null, null, null);
         }
     }
 
@@ -125,7 +131,10 @@ public class ImageDownloader {
 
         @Override
         protected void onPostExecute(Drawable result) {
-            callback.get().image3.setImageDrawable(result);
+            //callback.get().image3.setImageDrawable(result);
+            result.setBounds(0, 0, 140, 140);
+
+            callback.get().button3.setCompoundDrawables(result, null, null, null);
         }
     }
 
@@ -154,7 +163,9 @@ public class ImageDownloader {
 
         @Override
         protected void onPostExecute(Drawable result) {
-            callback.get().image4.setImageDrawable(result);
+            //callback.get().image4.setImageDrawable(result);
+            result.setBounds(0, 0, 180, 180);
+            callback.get().button4.setCompoundDrawables(result, null, null, null);
         }
     }
 }

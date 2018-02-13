@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,6 +29,9 @@ public class GameActivity extends AppCompatActivity {
     //the pictureview of the 4 possible userpics to guess from
     ImageView image1, image2, image3, image4;
 
+    //the 4 buttons etc
+    Button button1, button2, button3, button4;
+
     //the username of the author of the current tweet shown
     String correctUserName;
 
@@ -40,6 +44,8 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         Twitter.initialize(this);
+
+        /*
 
         userName1 = findViewById(R.id.userTweet1);
         userName2 = findViewById(R.id.userTweet2);
@@ -55,6 +61,15 @@ public class GameActivity extends AppCompatActivity {
         image2 = findViewById(R.id.image2);
         image3 = findViewById(R.id.image3);
         image4 = findViewById(R.id.image4);
+
+        */
+
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
+        button4 = findViewById(R.id.button4);
+
+
 
         tweetView = findViewById(R.id.tweetView);
 
@@ -101,24 +116,20 @@ public class GameActivity extends AppCompatActivity {
 
 
         if(where==0){
-            userName1.setText(name);
+            button1.setText(name + "\n@" + at);
             new ImageDownloader.DownloadPictureTask1(this).execute(picture);
-            userAt1.setText("@" + at);
             where++;
         }else if(where==1){
-            userName2.setText(name);
+            button2.setText(name + "\n@" + at);
             new ImageDownloader.DownloadPictureTask2(this).execute(picture);
-            userAt2.setText("@" + at);
             where++;
         }else if(where==2){
-            userName3.setText(name);
+            button3.setText(name + "\n@" + at);
             new ImageDownloader.DownloadPictureTask3(this).execute(picture);
-            userAt3.setText("@" + at);
             where++;
         }else if(where==3){
-            userName4.setText(name);
+            button4.setText(name + "\n@" + at);
             new ImageDownloader.DownloadPictureTask4(this).execute(picture);
-            userAt4.setText("@" + at);
             where++;
         }else{
             Log.e("Error", "that place to put the information does not exist: " + where);
