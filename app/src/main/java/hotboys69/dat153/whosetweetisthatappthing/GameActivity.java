@@ -4,9 +4,11 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.twitter.sdk.android.core.Twitter;
 
@@ -45,29 +47,62 @@ public class GameActivity extends AppCompatActivity {
 
         Twitter.initialize(this);
 
-        /*
 
-        userName1 = findViewById(R.id.userTweet1);
-        userName2 = findViewById(R.id.userTweet2);
-        userName3 = findViewById(R.id.userTweet3);
-        userName4 = findViewById(R.id.userTweet4);
-
-        userAt1 = findViewById(R.id.userAt1);
-        userAt2 = findViewById(R.id.userAt2);
-        userAt3 = findViewById(R.id.userAt3);
-        userAt4 = findViewById(R.id.userAt4);
-
-        image1 = findViewById(R.id.image1);
-        image2 = findViewById(R.id.image2);
-        image3 = findViewById(R.id.image3);
-        image4 = findViewById(R.id.image4);
-
-        */
+        String lol = "sssss";
+        lol.contains("ss");
 
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String buttonText = button1.getText().toString();
+                if(buttonText.contains(correctUserName)){
+                    Toast.makeText(GameActivity.this, "CORRECT :D", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(GameActivity.this, "Wrong, dude", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String buttonText = button2.getText().toString();
+                if(buttonText.contains(correctUserName)){
+                    Toast.makeText(GameActivity.this, "CORRECT :D", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(GameActivity.this, "Wrong, dude", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String buttonText = button3.getText().toString();
+                if(buttonText.contains(correctUserName)){
+                    Toast.makeText(GameActivity.this, "CORRECT :D", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(GameActivity.this, "Wrong, dude", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String buttonText = button4.getText().toString();
+                if(buttonText.contains(correctUserName)){
+                    Toast.makeText(GameActivity.this, "CORRECT :D", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(GameActivity.this, "Wrong, dude", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
 

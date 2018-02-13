@@ -70,7 +70,7 @@ public class ImageDownloader {
 
         @Override
         protected void onPostExecute(Drawable result) {
-            result.setBounds(0, 0, 160, 160);
+            result.setBounds(0, 0, callback.get().button1.getHeight(), callback.get().button1.getHeight());
             callback.get().button1.setCompoundDrawables(result, null, null, null);
         }
     }
@@ -100,8 +100,7 @@ public class ImageDownloader {
 
         @Override
         protected void onPostExecute(Drawable result) {
-            //callback.get().image2.setImageDrawable(result);
-            result.setBounds(0, 0, 200, 200);
+            result.setBounds(0, 0, callback.get().button1.getHeight(), callback.get().button1.getHeight());
             callback.get().button2.setCompoundDrawables(result, null, null, null);
         }
     }
@@ -131,8 +130,7 @@ public class ImageDownloader {
 
         @Override
         protected void onPostExecute(Drawable result) {
-            //callback.get().image3.setImageDrawable(result);
-            result.setBounds(0, 0, 140, 140);
+            result.setBounds(0, 0, callback.get().button1.getHeight(), callback.get().button1.getHeight());
 
             callback.get().button3.setCompoundDrawables(result, null, null, null);
         }
@@ -163,8 +161,7 @@ public class ImageDownloader {
 
         @Override
         protected void onPostExecute(Drawable result) {
-            //callback.get().image4.setImageDrawable(result);
-            result.setBounds(0, 0, 180, 180);
+            result.setBounds(0, 0, callback.get().button1.getHeight(), callback.get().button1.getHeight());
             callback.get().button4.setCompoundDrawables(result, null, null, null);
         }
     }
