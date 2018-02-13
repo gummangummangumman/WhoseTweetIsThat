@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="twitterOfficial">#1da1f2</color>
-    <color name="twitterOfficialLight">#f5f8fa</color>
+    <color name="twitterOfficialLight">#e1e8ed</color>
+    <color name="twitterOfficialWhite">#f5f8fa</color>
     <color name="twitterOfficialBlack">#14171a</color>
 </resources>
