@@ -14,6 +14,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
+        android:textSize="18dp"
+        android:textColor="@color/twitterOfficialBlack"
+        android:background="@color/tw__composer_white"
+        android:shadowColor="@color/twitterOfficialBlack"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scoreView" />
