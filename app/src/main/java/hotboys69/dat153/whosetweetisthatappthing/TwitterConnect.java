@@ -44,6 +44,7 @@ public class TwitterConnect {
             @Override
             public void failure(TwitterException exception) {
                 Log.w("fail", "it failz");
+                callback.get().setTweet("You have played too much. Come back in a few minutes to guess  on more tweets :D");
             }
         });
     }

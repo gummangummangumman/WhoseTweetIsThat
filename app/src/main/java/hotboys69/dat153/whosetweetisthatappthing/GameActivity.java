@@ -68,6 +68,8 @@ public class GameActivity extends AppCompatActivity {
      */
     public void showNewTweet()
     {
+        resetUI();
+
         //generate 4 random tweeters
         ArrayList<String> tweetersToGuessFrom = RandomTweeters.getRandomTweeters();
 
@@ -135,6 +137,15 @@ public class GameActivity extends AppCompatActivity {
                     newButton.setBackgroundColor(getResources().getColor(R.color.wrongAnswerRed));
                     getCorrectButton().setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
                 }
+
+                disableAllButtons();
+
+                tweetView.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        showNewTweet();
+                    }
+                });
             }
         });
         return newButton;
@@ -156,5 +167,29 @@ public class GameActivity extends AppCompatActivity {
             Log.e("buttonError", "there is no correct button!");
             return null;
         }
+    }
+
+
+    /**
+     * sets all the buttons' colours to the original colour and enables them all.
+     * deletes the onClick from the tweetView
+     */
+    public void resetUI(){
+        button1.setBackgroundColor(getResources().getColor(R.color.twitterOfficialWhite));
+        button2.setBackgroundColor(getResources().getColor(R.color.twitterOfficialWhite));
+        button3.setBackgroundColor(getResources().getColor(R.color.twitterOfficialWhite));
+        button4.setBackgroundColor(getResources().getColor(R.color.twitterOfficialWhite));
+        button1.setEnabled(true);
+        button2.setEnabled(true);
+        button3.setEnabled(true);
+        button4.setEnabled(true);
+        tweetView.setOnClickListener(null);
+    }
+
+    public void disableAllButtons(){
+        button1.setEnabled(false);
+        button2.setEnabled(false);
+        button3.setEnabled(false);
+        button4.setEnabled(false);
     }
 }
