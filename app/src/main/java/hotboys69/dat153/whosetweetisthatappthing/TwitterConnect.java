@@ -22,33 +22,6 @@ import retrofit2.Call;
 
 public class TwitterConnect {
 
-    public MainActivity activity;
-
-    public static void getRandomTweet(String username, GameActivity view)
-    {
-        final WeakReference<GameActivity> callback = new WeakReference<GameActivity>(view);
-        TwitterApiClient twitterApiClient = TwitterCore.getInstance().getApiClient();
-        StatusesService statusesService = twitterApiClient.getStatusesService();
-        Call<List<Tweet>> call = statusesService.userTimeline(null, username, null, null, null, null, null, null, null);
-        call.enqueue(new Callback<List<Tweet>>() {
-            @Override
-            public void success(Result<List<Tweet>> result) {
-                String randomTweet = result.data.get((int) Math.floor(Math.random() * result.data.size())).text;
-                Log.w("username", result.data.get(0).user.name);
-                Log.w("userAvatar", result.data.get(0).user.profileImageUrlHttps);
-                Log.w("randomTweet", randomTweet);
-                Log.w("howManyTweets", String.valueOf(result.data.size()));
-                callback.get().setTweet(randomTweet);
-            }
-
-            @Override
-            public void failure(TwitterException exception) {
-                Log.w("fail", "it failz");
-                callback.get().setTweet("You have played too much. Come back in a few minutes to guess  on more tweets. \n This can take up to 15 minutes.");
-            }
-        });
-    }
-
     /**
      *
      * @param username the @ of the user
@@ -74,7 +47,8 @@ public class TwitterConnect {
             @Override
             public void failure(TwitterException exception) {
                 Log.w("fail", "it failz");
-                callback.get().setTweet("You have played too much. Come back in a few minutes to guess  on more tweets. \n This can take up to 15 minutes.");
+                callback.get().setTweet("We could not load any tweets. There might have been made too many calls to twitter and you might have to wait until you can " +
+                        "fetch any more. \nThis can take up to 15 minutes.");
             }
         });
     }
