@@ -1,18 +1,18 @@
 package hotboys69.dat153.whosetweetisthatappthing;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.twitter.sdk.android.core.Twitter;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -25,23 +25,15 @@ public class GameActivity extends AppCompatActivity {
     //the text view of the tweet to guess on
     TextView tweetView;
 
-    //the textview of the 4 possible usernames to guess from
-    TextView userName1, userName2, userName3, userName4;
-
-    //the textview of the 4 possible @'s to guess from
-    TextView userAt1, userAt2, userAt3, userAt4;
-
-    //the pictureview of the 4 possible userpics to guess from
-    ImageView image1, image2, image3, image4;
-
     //the 4 buttons etc
     Button button1, button2, button3, button4;
 
     //the username of the author of the current tweet shown
     String correctUserName;
 
-    //the 4 users you need to guess from
-    ArrayList<String> usernamesToGuessFrom;
+    //the media player will play sounds on right or wrong guesses
+    MediaPlayer successSound;
+    MediaPlayer failureSound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +54,11 @@ public class GameActivity extends AppCompatActivity {
         button4 = setOnClick(button4);
 
         tweetView = findViewById(R.id.tweetView);
+
+        if(Settings.soundEnabled){
+            successSound = MediaPlayer.create(this, R.raw.success);
+            failureSound = MediaPlayer.create(this, R.raw.incorrect);
+        }
 
         showNewTweet();
     }
@@ -145,6 +142,10 @@ public class GameActivity extends AppCompatActivity {
                         }
                     });
 
+                    if(Settings.soundEnabled){
+                        successSound.start();
+                    }
+
                 }else{
                     newButton.setBackgroundColor(getResources().getColor(R.color.wrongAnswerRed));
                     Button correctButton = getCorrectButton();
@@ -157,9 +158,14 @@ public class GameActivity extends AppCompatActivity {
                             loseGame();
                         }
                     });
+
+                    if(Settings.soundEnabled){
+                        failureSound.start();
+                    }
                 }
 
                 disableAllButtons();
+
 
 
             }

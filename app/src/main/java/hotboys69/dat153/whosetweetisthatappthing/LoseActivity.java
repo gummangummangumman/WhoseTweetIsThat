@@ -11,7 +11,7 @@ public class LoseActivity extends AppCompatActivity {
 
     int score;
 
-    TextView scoreLoseText, gameOverText;
+    TextView scoreLoseText;
 
     Button playAgainButton, mainMenuButton;
 
