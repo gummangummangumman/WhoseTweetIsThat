@@ -21,11 +21,9 @@ public class LoseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lose);
 
         scoreLoseText = findViewById(R.id.scoreLoseText);
-        gameOverText = findViewById(R.id.gameOverText);
 
         score = 0;
 
-        gameOverText.setText("Game Over");
         scoreLoseText.setText("You got a score of: " + score);
 
 
@@ -52,7 +50,7 @@ public class LoseActivity extends AppCompatActivity {
         startActivity(menuIntent);
     }
 
-    public void startGame() {
+    private void startGame() {
         Intent gameIntent = new Intent(this, GameActivity.class);
         startActivity(gameIntent);
     }
