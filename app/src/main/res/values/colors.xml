@@ -9,6 +9,6 @@
     <color name="twitterOfficialBlack">#14171a</color>
     <color name="twitterOfficialLightGrey">#aab8c2</color>
     <color name="twitterOfficialDarkGrey">#657786</color>
-    <color name="correctAnswerGreen">#00ff00</color>
-    <color name="wrongAnswerRed">#ff0000</color>
+    <color name="correctAnswerGreen">#07ff35</color>
+    <color name="wrongAnswerRed">#ff0400</color>
 </resources>
