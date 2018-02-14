@@ -1,5 +1,6 @@
 package hotboys69.dat153.whosetweetisthatappthing;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,9 @@ import com.twitter.sdk.android.core.Twitter;
 import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
+
+    //score
+    int score = 0;
 
     //where it's supposed to be
     int where = 0;
@@ -77,12 +81,10 @@ public class GameActivity extends AppCompatActivity {
         correctUserName = RandomTweeters.getRandomTweeter(tweetersToGuessFrom);
 
         //get all the names and images for the 4 tweeters to guess from
+        //it will also show the tweet from the right tweeter
         for(String s:tweetersToGuessFrom){
             TwitterConnect.setUserInformation(s, this);
         }
-
-        //get the correct tweet
-        TwitterConnect.getRandomTweet(correctUserName, this);
     }
 
 
@@ -133,21 +135,33 @@ public class GameActivity extends AppCompatActivity {
                 String buttonText = newButton.getText().toString();
                 if(buttonText.contains(correctUserName)){
                     newButton.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
+
+                    score++;
+
+                    tweetView.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View view) {
+                            showNewTweet();
+                        }
+                    });
+
                 }else{
                     newButton.setBackgroundColor(getResources().getColor(R.color.wrongAnswerRed));
                     Button correctButton = getCorrectButton();
                     if(correctButton!=null)
                         correctButton.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
+
+                    tweetView.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View view) {
+                            loseGame();
+                        }
+                    });
                 }
 
                 disableAllButtons();
 
-                tweetView.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View view) {
-                        showNewTweet();
-                    }
-                });
+
             }
         });
         return newButton;
@@ -185,7 +199,16 @@ public class GameActivity extends AppCompatActivity {
         button2.setEnabled(true);
         button3.setEnabled(true);
         button4.setEnabled(true);
+        button1.setText("");
+        button2.setText("");
+        button3.setText("");
+        button4.setText("");
+        button1.setCompoundDrawables(null, null, null, null);
+        button2.setCompoundDrawables(null, null, null, null);
+        button3.setCompoundDrawables(null, null, null, null);
+        button4.setCompoundDrawables(null, null, null, null);
         tweetView.setOnClickListener(null);
+        tweetView.setText("");
     }
 
     public void disableAllButtons(){
@@ -193,5 +216,12 @@ public class GameActivity extends AppCompatActivity {
         button2.setEnabled(false);
         button3.setEnabled(false);
         button4.setEnabled(false);
+    }
+
+
+    public void loseGame(){
+        Intent loseIntent = new Intent(this, LoseActivity.class);
+        loseIntent.putExtra("score", score);
+        startActivity(loseIntent);
     }
 }

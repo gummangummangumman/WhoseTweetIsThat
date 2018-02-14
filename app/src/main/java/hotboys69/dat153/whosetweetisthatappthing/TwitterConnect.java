@@ -44,7 +44,7 @@ public class TwitterConnect {
             @Override
             public void failure(TwitterException exception) {
                 Log.w("fail", "it failz");
-                callback.get().setTweet("You have played too much. Come back in a few minutes to guess  on more tweets :D");
+                callback.get().setTweet("You have played too much. Come back in a few minutes to guess  on more tweets. \n This can take up to 15 minutes.");
             }
         });
     }
@@ -62,12 +62,19 @@ public class TwitterConnect {
         call.enqueue(new Callback<List<Tweet>>() {
             @Override
             public void success(Result<List<Tweet>> result) {
+
+                if(result.data.get(0).user.screenName.equals(callback.get().correctUserName)){
+                    String randomTweet = result.data.get((int) Math.floor(Math.random() * result.data.size())).text;
+                    callback.get().setTweet(randomTweet);
+                }
+
                 callback.get().setUserInformation(result.data.get(0).user.name, result.data.get(0).user.profileImageUrl, result.data.get(0).user.screenName);
             }
 
             @Override
             public void failure(TwitterException exception) {
                 Log.w("fail", "it failz");
+                callback.get().setTweet("You have played too much. Come back in a few minutes to guess  on more tweets. \n This can take up to 15 minutes.");
             }
         });
     }
