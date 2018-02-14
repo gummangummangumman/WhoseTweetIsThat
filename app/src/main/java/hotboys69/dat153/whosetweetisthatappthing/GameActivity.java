@@ -135,7 +135,9 @@ public class GameActivity extends AppCompatActivity {
                     newButton.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
                 }else{
                     newButton.setBackgroundColor(getResources().getColor(R.color.wrongAnswerRed));
-                    getCorrectButton().setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
+                    Button correctButton = getCorrectButton();
+                    if(correctButton!=null)
+                        correctButton.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
                 }
 
                 disableAllButtons();
