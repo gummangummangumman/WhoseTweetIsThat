@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void startGame()
     {
-        Intent listPageIntent = new Intent(this, GameActivity.class);
-        startActivity(listPageIntent);
+        Intent gameIntent = new Intent(this, GameActivity.class);
+        startActivity(gameIntent);
     }
 }

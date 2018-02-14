@@ -47,68 +47,15 @@ public class GameActivity extends AppCompatActivity {
         Twitter.initialize(this);
 
 
-        String lol = "sssss";
-        lol.contains("ss");
-
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
 
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String buttonText = button1.getText().toString();
-                if(buttonText.contains(correctUserName)){
-                    button1.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
-                    Toast.makeText(GameActivity.this, "CORRECT :D", Toast.LENGTH_SHORT).show();
-                }else{
-                    button1.setBackgroundColor(getResources().getColor(R.color.wrongAnswerRed));
-                    Toast.makeText(GameActivity.this, "Wrong, dude", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String buttonText = button2.getText().toString();
-                if(buttonText.contains(correctUserName)){
-                    button2.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
-                    Toast.makeText(GameActivity.this, "CORRECT :D", Toast.LENGTH_SHORT).show();
-                }else{
-                    button2.setEnabled(false);
-                    Toast.makeText(GameActivity.this, "Wrong, dude", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String buttonText = button3.getText().toString();
-                if(buttonText.contains(correctUserName)){
-                    button3.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
-                    Toast.makeText(GameActivity.this, "CORRECT :D", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(GameActivity.this, "Wrong, dude", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String buttonText = button4.getText().toString();
-                if(buttonText.contains(correctUserName)){
-                    Toast.makeText(GameActivity.this, "CORRECT :D", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(GameActivity.this, "Wrong, dude", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-
+        button1 = setOnClick(button1);
+        button2 = setOnClick(button2);
+        button3 = setOnClick(button3);
+        button4 = setOnClick(button4);
 
         tweetView = findViewById(R.id.tweetView);
 
@@ -138,7 +85,7 @@ public class GameActivity extends AppCompatActivity {
 
 
     /**
-     * shows the tweet in the tweetView
+     * shows the tweet in the tweetView. Called from TwitterConnect
      */
     public void setTweet(String tweet){
         tweetView.setText(tweet);
@@ -150,10 +97,6 @@ public class GameActivity extends AppCompatActivity {
      * @param at the @ of the user (also called screenName, handle)
      */
     public void setUserInformation(String name, String picture, String at){
-
-        Log.w("where", String.valueOf(where));
-
-
         if(where==0){
             button1.setText(name + "\n@" + at);
             new ImageDownloader.DownloadPictureTask1(this).execute(picture);
@@ -169,9 +112,49 @@ public class GameActivity extends AppCompatActivity {
         }else if(where==3){
             button4.setText(name + "\n@" + at);
             new ImageDownloader.DownloadPictureTask4(this).execute(picture);
-            where++;
+            where = 0;
         }else{
             Log.e("Error", "that place to put the information does not exist: " + where);
+        }
+    }
+
+
+    /**
+     * sets the onclick to a button and returns the button
+     */
+    public Button setOnClick(Button button){
+
+        final Button newButton = button;
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String buttonText = newButton.getText().toString();
+                if(buttonText.contains(correctUserName)){
+                    newButton.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
+                }else{
+                    newButton.setBackgroundColor(getResources().getColor(R.color.wrongAnswerRed));
+                    getCorrectButton().setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
+                }
+            }
+        });
+        return newButton;
+    }
+
+    /**
+     * @return the button with the correct tweeter shown
+     */
+    public Button getCorrectButton(){
+        if(button1.getText().toString().contains(correctUserName))
+            return button1;
+        else if(button2.getText().toString().contains(correctUserName))
+            return button2;
+        else if(button3.getText().toString().contains(correctUserName))
+            return button3;
+        else if(button4.getText().toString().contains(correctUserName))
+            return button4;
+        else{
+            Log.e("buttonError", "there is no correct button!");
+            return null;
         }
     }
 }
