@@ -32,8 +32,7 @@ public class GameActivity extends AppCompatActivity {
     String correctUserName;
 
     //the media player will play sounds on right or wrong guesses
-    MediaPlayer successSound;
-    MediaPlayer failureSound;
+    MediaPlayer successSound, failureSound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
