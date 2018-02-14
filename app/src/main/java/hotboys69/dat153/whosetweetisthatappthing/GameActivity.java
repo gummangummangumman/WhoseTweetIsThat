@@ -1,6 +1,5 @@
 package hotboys69.dat153.whosetweetisthatappthing;
 
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,8 +60,10 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String buttonText = button1.getText().toString();
                 if(buttonText.contains(correctUserName)){
+                    button1.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
                     Toast.makeText(GameActivity.this, "CORRECT :D", Toast.LENGTH_SHORT).show();
                 }else{
+                    button1.setBackgroundColor(getResources().getColor(R.color.wrongAnswerRed));
                     Toast.makeText(GameActivity.this, "Wrong, dude", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -73,8 +74,10 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String buttonText = button2.getText().toString();
                 if(buttonText.contains(correctUserName)){
+                    button2.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
                     Toast.makeText(GameActivity.this, "CORRECT :D", Toast.LENGTH_SHORT).show();
                 }else{
+                    button2.setEnabled(false);
                     Toast.makeText(GameActivity.this, "Wrong, dude", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -85,6 +88,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String buttonText = button3.getText().toString();
                 if(buttonText.contains(correctUserName)){
+                    button3.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
                     Toast.makeText(GameActivity.this, "CORRECT :D", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(GameActivity.this, "Wrong, dude", Toast.LENGTH_SHORT).show();
