@@ -51,7 +51,9 @@ public class TwitterConnect {
                         }else if(number==FIRST_NUMBER){
                             Log.w("lol", "all tweets from " + result.data.get(0).user.name + " were shit");
                             keepLooking = false;
-                            //callback.get().showNewTweet();
+
+                            //TODO consider getting a new tweet altogether instead of giving up?
+
                         }else{
                             number++;
                         }

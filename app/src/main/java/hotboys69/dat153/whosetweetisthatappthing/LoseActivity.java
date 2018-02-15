@@ -24,9 +24,14 @@ public class LoseActivity extends AppCompatActivity {
 
         score = (int)getIntent().getExtras().get("score");
 
-        Settings.postScore(score);
+        boolean newHighscore = Settings.postScore(score);
 
-        scoreLoseText.setText("Highscore: " + Settings.getHighScore() + "\n" + "You got a score of: " + score);
+        if(newHighscore){
+            scoreLoseText.setText("New highscore!\nHighscore: " + Settings.getHighScore());
+        }
+        else{
+            scoreLoseText.setText("You got a score of: " + score + "\nHighscore: " + Settings.getHighScore());
+        }
 
 
         playAgainButton = findViewById(R.id.playAgainButton);

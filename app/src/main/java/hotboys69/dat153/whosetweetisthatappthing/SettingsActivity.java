@@ -33,6 +33,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 Settings.soundEnabled = b;
+                Settings.saveSettings(getBaseContext());
             }
         });
 
