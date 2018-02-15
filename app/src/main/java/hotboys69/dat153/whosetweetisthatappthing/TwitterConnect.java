@@ -37,7 +37,31 @@ public class TwitterConnect {
             public void success(Result<List<Tweet>> result) {
 
                 if(result.data.get(0).user.screenName.equals(callback.get().correctUserName)){
-                    String randomTweet = result.data.get((int) Math.floor(Math.random() * result.data.size())).text;
+                    int number = (int) Math.floor(Math.random() * result.data.size());
+                    String randomTweet = result.data.get(number).text;
+
+                    final int FIRST_NUMBER = number;
+
+
+                    boolean keepLooking = !TweetFilter.isValid(randomTweet);
+
+                    while(keepLooking){
+                        if(number==19){
+                            number = 0;
+                        }else if(number==FIRST_NUMBER){
+                            Log.w("lol", "all tweets from " + result.data.get(0).user.name + " were shit");
+                            keepLooking = false;
+                            //callback.get().showNewTweet();
+                        }else{
+                            number++;
+                        }
+                        randomTweet = result.data.get(number).text;
+                    }
+
+
+
+
+
                     callback.get().setTweet(randomTweet);
                 }
 

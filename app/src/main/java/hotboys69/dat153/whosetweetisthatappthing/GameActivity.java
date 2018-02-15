@@ -229,6 +229,7 @@ public class GameActivity extends AppCompatActivity {
     public void loseGame(){
         Intent loseIntent = new Intent(this, LoseActivity.class);
         loseIntent.putExtra("score", score);
+        this.finish();
         startActivity(loseIntent);
     }
 }

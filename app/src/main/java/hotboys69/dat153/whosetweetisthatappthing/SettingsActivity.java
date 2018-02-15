@@ -50,6 +50,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void mainMenu() {
         Intent menuIntent = new Intent(this, MainActivity.class);
+        menuIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        menuIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        this.finish();
         startActivity(menuIntent);
     }
 }
