@@ -24,7 +24,7 @@ public class Settings {
         }
     }
 
-    public int getHighScore(){
+    public static int getHighScore(){
         return highScore;
     }
 

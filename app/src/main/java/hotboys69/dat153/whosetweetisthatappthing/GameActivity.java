@@ -22,8 +22,8 @@ public class GameActivity extends AppCompatActivity {
     //where it's supposed to be
     int where = 0;
 
-    //the text view of the tweet to guess on
-    TextView tweetView;
+    //the text view of the tweet to guess on and the score
+    TextView tweetView, scoreView;
 
     //the 4 buttons etc
     Button button1, button2, button3, button4;
@@ -53,6 +53,9 @@ public class GameActivity extends AppCompatActivity {
         button4 = setOnClick(button4);
 
         tweetView = findViewById(R.id.tweetView);
+        scoreView = findViewById(R.id.scoreView);
+
+        scoreView.setText("Score: " + score);
 
         if(Settings.soundEnabled){
             successSound = MediaPlayer.create(this, R.raw.success);
@@ -131,9 +134,8 @@ public class GameActivity extends AppCompatActivity {
                 String buttonText = newButton.getText().toString();
                 if(buttonText.contains(correctUserName)){
                     newButton.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
-
                     score++;
-
+                    scoreView.setText("Score: " + score);
                     tweetView.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View view) {

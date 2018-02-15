@@ -22,9 +22,11 @@ public class LoseActivity extends AppCompatActivity {
 
         scoreLoseText = findViewById(R.id.scoreLoseText);
 
-        score = 0;
+        score = (int)getIntent().getExtras().get("score");
 
-        scoreLoseText.setText("You got a score of: " + score);
+        Settings.postScore(score);
+
+        scoreLoseText.setText("Highscore: " + Settings.getHighScore() + "\n" + "You got a score of: " + score);
 
 
         playAgainButton = findViewById(R.id.playAgainButton);
