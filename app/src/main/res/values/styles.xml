@@ -6,6 +6,9 @@
         <item name="colorPrimary">@color/twitterOfficial</item>
         <item name="colorPrimaryDark">@color/twitterOfficialBlack</item>
         <item name="colorAccent">@color/twitterOfficialLight</item>
+        <item name="background">@color/twitterOfficialLight</item>
+        <item name="buttonBackground">@color/twitterOfficial</item>
+        <item name="buttonTextColor">@color/twitterOfficialWhite</item>
     </style>
 
 </resources>

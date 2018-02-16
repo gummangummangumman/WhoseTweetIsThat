@@ -3,9 +3,10 @@
     <string name="com.twitter.sdk.android.CONSUMER_KEY">xL5rTvWdN6tWvg2kSmPX3eoSK</string>
     <string name="com.twitter.sdk.android.CONSUMER_SECRET">431ZscXAnlgKpj2iK0q0Pd1tupKyWs0NHw0rKsKvQJSCFjfKLq</string>
 
-    <string name="backToMainMenu">Back To main menu</string>
+    <string name="backToMainMenu">Main menu</string>
     <string name="play">Play</string>
+    <string name="playagain">Play again</string>
     <string name="settings">Settings</string>
     <string name="sound">Sound effects</string>
-    <string name="gameOver">Game Over!</string>
+    <string name="gameOver">Game Over</string>
 </resources>
