@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="music">
+        <item>rihanna</item>
+        <item>pitbull</item>
+        <item>officialjaden</item>
+        <item>ddlovato</item>
+        <item>katyperry</item>
+    </string-array>
+    <string-array name="politics">
+        <item>realDonaldTrump</item>
+        <item>BillGates</item>
+        <item>HillaryClinton</item>
+        <item>elonmusk</item>
+        <item>BarackObama</item>
+    </string-array>
+
+
+</resources>
