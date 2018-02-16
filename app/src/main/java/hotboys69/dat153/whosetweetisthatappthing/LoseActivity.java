@@ -28,6 +28,7 @@ public class LoseActivity extends AppCompatActivity {
 
         if(newHighscore){
             scoreLoseText.setText("New highscore!\nHighscore: " + Settings.getHighScore());
+            Settings.saveSettings(getBaseContext());
         }
         else{
             scoreLoseText.setText("You got a score of: " + score + "\nHighscore: " + Settings.getHighScore());

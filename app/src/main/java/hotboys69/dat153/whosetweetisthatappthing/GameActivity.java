@@ -91,7 +91,11 @@ public class GameActivity extends AppCompatActivity {
      * shows the tweet in the tweetView. Called from TwitterConnect
      */
     public void setTweet(String tweet){
-        tweetView.setText(tweet);
+        String withoutLink = tweet.split("http")[0];
+
+        Log.w("tweet", tweet);
+
+        tweetView.setText(withoutLink);
     }
 
     /**

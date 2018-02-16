@@ -25,17 +25,15 @@ public class Settings {
         highScore = pref.getInt("highscore", 0);
 
         loaded = true;
-        Log.w("lol", "loaded settings :D");
     }
 
     public static void saveSettings(Context context){
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor prefEditor = pref.edit();
+
         prefEditor.putInt("highscore", highScore);
         prefEditor.putBoolean("soundenabled", soundEnabled);
         prefEditor.commit();
-
-        Log.w("settings", "saved settings :')");
     }
 
 

@@ -14,34 +14,21 @@ public class TweetFilter {
      * @return true for valid, false for not
      */
     public static boolean isValid(String tweet){
-        return (isNotARetweet(tweet) && doesNotContainLinks(tweet));
-    }
-
-
-    /**
-     * checks if it's a retweet. The two first characters will be 'RT @'
-     */
-    private static boolean isNotARetweet(String tweet){
-        boolean valid = true;
-
-        char[] chars = tweet.toCharArray();
-        if(chars.length>4){
-            if(chars[0]=='R' && chars[1]=='T' && chars[3]=='@'){
-                valid = false;
-            }
-        }
-
-        return valid;
+        return (containsMoreThanALink(tweet));
     }
 
     /**
-     * checks if it contains a link
+     * checks if it contains more text than a link
      */
-    private static boolean doesNotContainLinks(String tweet){
+    private static boolean containsMoreThanALink (String tweet){
         boolean valid = true;
 
         if(tweet.contains("http")){
-            valid = false;
+            if(!tweet.contains("t.co/")){
+                valid = false;
+            }else if(tweet.split("http")[0].length() < 5){
+                valid = false;
+            }
         }
 
         return valid;
