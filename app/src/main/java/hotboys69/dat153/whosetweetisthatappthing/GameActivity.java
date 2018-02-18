@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.twitter.sdk.android.core.Twitter;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 public class GameActivity extends AppCompatActivity {
 

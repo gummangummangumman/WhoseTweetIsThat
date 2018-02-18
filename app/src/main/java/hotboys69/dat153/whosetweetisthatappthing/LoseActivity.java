@@ -1,6 +1,7 @@
 package hotboys69.dat153.whosetweetisthatappthing;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,8 @@ public class LoseActivity extends AppCompatActivity {
 
     Button playAgainButton, mainMenuButton;
 
+    MediaPlayer highScoreSound;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +29,12 @@ public class LoseActivity extends AppCompatActivity {
 
         boolean newHighscore = Settings.postScore(score);
 
+
         if(newHighscore){
             scoreLoseText.setText("New highscore!\nHighscore: " + Settings.getHighScore());
             Settings.saveSettings(getBaseContext());
+            highScoreSound = MediaPlayer.create(this, R.raw.fanfare);
+            highScoreSound.start();
         }
         else{
             scoreLoseText.setText("You got a score of: " + score + "\nHighscore: " + Settings.getHighScore());

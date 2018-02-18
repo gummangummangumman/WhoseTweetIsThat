@@ -31,7 +31,7 @@ public class RandomTweeterTest {
     @Test
     public void usernameExists(){
         String username = RandomTweeters.getRandomTweeter(tweeters);
-        assertTrue(Data.musicians.contains(username) || Data.users.contains(username));
+        assertTrue(Data.musicians.contains(username) || Data.nonmusicians.contains(username));
     }
 
     @After

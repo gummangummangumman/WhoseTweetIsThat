@@ -2,9 +2,6 @@ package hotboys69.dat153.whosetweetisthatappthing;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by GuMMaN on 12.02.2018.
@@ -29,9 +26,9 @@ public class RandomTweeters {
                 tweetersToGuessFrom.add(Data.musicians.get(i));
             }
         }else{
-            Collections.shuffle(Data.users);
+            Collections.shuffle(Data.nonmusicians);
             for(int i=0;i<4;i++){
-                tweetersToGuessFrom.add(Data.users.get(i));
+                tweetersToGuessFrom.add(Data.nonmusicians.get(i));
             }
         }
 
