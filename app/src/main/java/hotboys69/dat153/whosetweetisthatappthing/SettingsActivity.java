@@ -1,6 +1,8 @@
 package hotboys69.dat153.whosetweetisthatappthing;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,12 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import java.util.Set;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    Button menuButton;
+    Button menuButton, resetScoreButton;
     Switch soundSwitch;
 
     @Override
@@ -46,6 +49,14 @@ public class SettingsActivity extends AppCompatActivity {
                 mainMenu();
             }
         });
+
+        resetScoreButton = findViewById(R.id.resetHighScoreButton);
+        resetScoreButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                requestResetHighScoreConfirmation();
+            }
+        });
     }
 
 
@@ -55,5 +66,36 @@ public class SettingsActivity extends AppCompatActivity {
         menuIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         this.finish();
         startActivity(menuIntent);
+    }
+
+
+    public void requestResetHighScoreConfirmation(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.resetconfirmation);
+        builder.setTitle(R.string.reset);
+        builder.setPositiveButton(R.string.reset, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                resetHighScore();
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //
+            }
+        });
+
+        builder.create().show();
+    }
+
+
+    private void resetHighScore()
+    {
+        Settings.resetHighScore();
+        Settings.saveSettings(getBaseContext());
+
+        Toast.makeText(this, "highscore reset!", Toast.LENGTH_SHORT).show();
+
     }
 }

@@ -50,6 +50,13 @@ public class Settings {
         }
     }
 
+    /**
+     * resets the score
+     */
+    public static void resetHighScore(){
+        highScore = 0;
+    }
+
     public static int getHighScore(){
         return highScore;
     }
