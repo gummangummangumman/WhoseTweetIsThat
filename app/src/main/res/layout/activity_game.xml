@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="hotboys69.dat153.whosetweetisthatappthing.GameActivity"
-    android:background="@color/twitterOfficialLight">
+    tools:context="hotboys69.dat153.whosetweetisthatappthing.GameActivity">
 
     <TextView
         android:id="@+id/tweetView"
