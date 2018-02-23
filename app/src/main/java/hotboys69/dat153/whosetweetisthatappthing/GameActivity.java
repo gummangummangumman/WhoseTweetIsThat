@@ -1,6 +1,13 @@
 package hotboys69.dat153.whosetweetisthatappthing;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -169,9 +176,7 @@ public class GameActivity extends AppCompatActivity {
                 }
 
                 disableAllButtons();
-
-
-
+                animateTweetView();
             }
         });
         return newButton;
@@ -234,5 +239,23 @@ public class GameActivity extends AppCompatActivity {
         loseIntent.putExtra("score", score);
         this.finish();
         startActivity(loseIntent);
+    }
+
+    private void animateTweetView(){
+        ValueAnimator anim = new ValueAnimator();
+        anim.setIntValues(Color.WHITE, getResources().getColor(R.color.animateCard));
+        anim.setEvaluator(new ArgbEvaluator());
+        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                tweetView.setBackgroundColor((Integer)valueAnimator.getAnimatedValue());
+            }
+        });
+
+        anim.setDuration(2000);
+        anim.setRepeatMode(ValueAnimator.REVERSE);
+        anim.setRepeatCount(ValueAnimator.INFINITE);
+
+        anim.start();
     }
 }

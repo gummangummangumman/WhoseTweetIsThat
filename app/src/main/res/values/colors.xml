@@ -11,4 +11,5 @@
     <color name="twitterOfficialDarkGrey">#657786</color>
     <color name="correctAnswerGreen">#07ff35</color>
     <color name="wrongAnswerRed">#ff0400</color>
+    <color name="animateCard">#b9d8ee</color>
 </resources>
