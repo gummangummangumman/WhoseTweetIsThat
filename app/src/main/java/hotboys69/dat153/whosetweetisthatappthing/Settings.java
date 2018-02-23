@@ -21,7 +21,7 @@ public class Settings {
     public static void loadSettings(Context context){
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
 
-        soundEnabled = pref.getBoolean("soundenabled", false);
+        soundEnabled = pref.getBoolean("soundenabled", true);
         highScore = pref.getInt("highscore", 0);
 
         loaded = true;

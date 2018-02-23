@@ -40,12 +40,17 @@ public class GameActivity extends AppCompatActivity {
     //the media player will play sounds on right or wrong guesses
     MediaPlayer successSound, failureSound;
 
+    //animates the tweet view when the user has answered
+    ValueAnimator anim;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
         Twitter.initialize(this);
+
+
 
 
         button1 = findViewById(R.id.button1);
@@ -224,6 +229,10 @@ public class GameActivity extends AppCompatActivity {
         button4.setCompoundDrawables(null, null, null, null);
         tweetView.setOnClickListener(null);
         tweetView.setText("");
+        if(anim!=null){
+            anim.end();
+            tweetView.setBackgroundColor(Color.WHITE);
+        }
     }
 
     public void disableAllButtons(){
@@ -242,7 +251,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void animateTweetView(){
-        ValueAnimator anim = new ValueAnimator();
+        anim = new ValueAnimator();
         anim.setIntValues(Color.WHITE, getResources().getColor(R.color.animateCard));
         anim.setEvaluator(new ArgbEvaluator());
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
