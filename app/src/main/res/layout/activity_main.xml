@@ -4,42 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="hotboys69.dat153.whosetweetisthatappthing.MainActivity">
+    tools:context="hotboys69.dat153.whosetweetisthatappthing.MainActivity"
+    android:layout_gravity="center"
+    android:layout_centerVertical="true">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="355dp"
-        android:layout_height="133dp"
-        android:layout_marginTop="156dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/textandlogo" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
 
-    <Button
-        android:id="@+id/playButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/twitterOfficial"
-        android:text="@string/play"
-        android:textColor="@color/twitterOfficialWhite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="355dp"
+            android:layout_height="133dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="125dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.517"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/textandlogo" />
 
-    <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/twitterOfficial"
-        android:text="@string/settings"
-        android:textColor="@color/twitterOfficialWhite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playButton"/>
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:backgroundTint="@color/twitterOfficial"
+            android:text="@string/play"
+            android:textColor="@color/twitterOfficialWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <Button
+            android:id="@+id/settingsButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/playButton"
+            android:layout_alignStart="@+id/playButton"
+            android:layout_below="@+id/playButton"
+            android:layout_marginTop="23dp"
+            android:backgroundTint="@color/twitterOfficial"
+            android:text="@string/settings"
+            android:textColor="@color/twitterOfficialWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playButton" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
