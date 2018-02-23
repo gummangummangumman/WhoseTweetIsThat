@@ -10,9 +10,10 @@
         android:id="@+id/imageView"
         android:layout_width="355dp"
         android:layout_height="133dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="156dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/textandlogo" />
@@ -27,18 +28,18 @@
         android:textColor="@color/twitterOfficialWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"/>
 
     <Button
         android:id="@+id/settingsButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/twitterOfficial"
         android:text="@string/settings"
         android:textColor="@color/twitterOfficialWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playButton" />
+        app:layout_constraintTop_toBottomOf="@+id/playButton"/>
 
 </android.support.constraint.ConstraintLayout>

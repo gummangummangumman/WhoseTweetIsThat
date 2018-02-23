@@ -11,6 +11,16 @@
     </style>
 
 
+    <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/twitterOfficial</item>
+        <item name="colorPrimaryDark">@color/twitterOfficialBlack</item>
+        <item name="colorAccent">@color/twitterOfficial</item>
+        <item name="android:colorBackground">@color/twitterOfficialWhite</item>
+        <item name="android:textColor">@color/twitterOfficialBlack</item>
+    </style>
+
+
     <style name="GameTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/twitterOfficial</item>
         <item name="colorPrimaryDark">@color/twitterOfficialBlack</item>

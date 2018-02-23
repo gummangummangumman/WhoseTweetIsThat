@@ -12,7 +12,7 @@ public class LoseActivity extends AppCompatActivity {
 
     int score;
 
-    TextView scoreLoseText;
+    TextView scoreLoseText, gameOverText;
 
     Button playAgainButton, mainMenuButton;
 
@@ -31,7 +31,9 @@ public class LoseActivity extends AppCompatActivity {
 
 
         if(newHighscore){
-            scoreLoseText.setText("New highscore!\nHighscore: " + Settings.getHighScore());
+            gameOverText = findViewById(R.id.gameOverText);
+            gameOverText.setText("New highscore!");
+            scoreLoseText.setText("Highscore: " + Settings.getHighScore());
             Settings.saveSettings(getBaseContext());
             highScoreSound = MediaPlayer.create(this, R.raw.fanfare);
             highScoreSound.start();
