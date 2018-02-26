@@ -43,6 +43,9 @@ public class GameActivity extends AppCompatActivity {
     //animates the tweet view when the user has answered
     ValueAnimator anim;
 
+    //if a tweeter has failed to load
+    boolean failed = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +85,7 @@ public class GameActivity extends AppCompatActivity {
      */
     public void showNewTweet()
     {
+        failed = false;
         resetUI();
 
         //generate 4 random tweeters
@@ -97,16 +101,34 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * should be called when the main tweet failed
+     */
+    public void setFailed(){
+        setTweet("Oops! Something went wrong while loading a tweeter. There might have been made too many calls to " +
+                "twitter and you might have to wait until you can " +
+                "fetch any more. \nThis can take up to 15 minutes.");
+        animateTweetView();
+        failed = true;
+        disableAllButtons();
+        tweetView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showNewTweet();
+            }
+        });
+    }
+
 
     /**
      * shows the tweet in the tweetView. Called from TwitterConnect
      */
     public void setTweet(String tweet){
-        String withoutLink = tweet.split("http")[0];
+        if(!failed){
+            String withoutLink = tweet.split("http")[0];
 
-        Log.w("tweet", tweet);
-
-        tweetView.setText(withoutLink);
+            tweetView.setText(withoutLink);
+        }
     }
 
     /**

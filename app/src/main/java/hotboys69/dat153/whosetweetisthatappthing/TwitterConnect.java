@@ -82,9 +82,7 @@ public class TwitterConnect {
 
             @Override
             public void failure(TwitterException exception) {
-                Log.w("fail", "it failz");
-                callback.get().setTweet("Oops! We could not load any tweets. There might have been made too many calls to twitter and you might have to wait until you can " +
-                        "fetch any more. \nThis can take up to 15 minutes.");
+                callback.get().setFailed();
             }
         });
     }
