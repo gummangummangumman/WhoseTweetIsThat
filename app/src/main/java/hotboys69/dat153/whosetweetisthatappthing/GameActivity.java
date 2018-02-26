@@ -222,7 +222,7 @@ public class GameActivity extends AppCompatActivity {
         else if(button4.getText().toString().contains(correctUserName))
             return button4;
         else{
-            Log.e("buttonError", "there is no correct button!");
+            Log.e("buttonError", "there is no correct button! username: " + correctUserName);
             return null;
         }
     }

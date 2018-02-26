@@ -6,6 +6,11 @@
         <item>officialjaden</item>
         <item>ddlovato</item>
         <item>katyperry</item>
+        <item>justinbieber</item>
+        <item>taylorswift13</item>
+        <item>britneyspears</item>
+        <item>BrunoMars</item>
+        <item>PostMalone</item>
     </string-array>
     <string-array name="politics">
         <item>realDonaldTrump</item>
@@ -13,7 +18,8 @@
         <item>HillaryClinton</item>
         <item>elonmusk</item>
         <item>BarackObama</item>
+        <item>DalaiLama</item>
+        <item>neiltyson</item>
+        <item>Pontifex</item>
     </string-array>
-
-
 </resources>
