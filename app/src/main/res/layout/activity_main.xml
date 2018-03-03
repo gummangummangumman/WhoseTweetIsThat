@@ -25,7 +25,7 @@
             app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/textandlogo" />
+            app:srcCompat="@drawable/whosetweet2" />
 
         <Button
             android:id="@+id/playButton"
