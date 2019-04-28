@@ -169,7 +169,7 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String buttonText = newButton.getText().toString();
-                if(buttonText.contains(correctUserName)){
+                if(buttonText.toLowerCase().contains(correctUserName.toLowerCase())){
                     newButton.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
                     score++;
                     scoreView.setText("Score: " + score);
@@ -213,13 +213,13 @@ public class GameActivity extends AppCompatActivity {
      * @return the button with the correct tweeter shown
      */
     public Button getCorrectButton(){
-        if(button1.getText().toString().contains(correctUserName))
+        if(button1.getText().toString().toLowerCase().contains(correctUserName.toLowerCase()))
             return button1;
-        else if(button2.getText().toString().contains(correctUserName))
+        else if(button2.getText().toString().toLowerCase().contains(correctUserName.toLowerCase()))
             return button2;
-        else if(button3.getText().toString().contains(correctUserName))
+        else if(button3.getText().toString().toLowerCase().contains(correctUserName.toLowerCase()))
             return button3;
-        else if(button4.getText().toString().contains(correctUserName))
+        else if(button4.getText().toString().toLowerCase().contains(correctUserName.toLowerCase()))
             return button4;
         else{
             Log.e("buttonError", "there is no correct button! username: " + correctUserName);

@@ -9,7 +9,8 @@ import java.util.ArrayList;
 public class Data {
 
     public static ArrayList<String> nonmusicians;
-
     public static ArrayList<String> musicians;
 
+
+    public static boolean defaultValues;//not fetched from API
 }

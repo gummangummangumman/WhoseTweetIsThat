@@ -23,10 +23,15 @@ public class MainActivity extends AppCompatActivity {
 
         if(Data.musicians==null){
             Data.musicians = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.music)));
+            Data.defaultValues = true;
         }
-
         if(Data.nonmusicians ==null){
             Data.nonmusicians = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.politics)));
+            Data.defaultValues = true;
+        }
+
+        if(Data.defaultValues){
+            new TweeterListFetcher.FetchTweeters().execute(getResources().getString(R.string.APIurl));
         }
 
 
