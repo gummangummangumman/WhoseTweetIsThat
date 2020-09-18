@@ -44,13 +44,6 @@ public class TwitterConnect {
 
                     //we should keep looking as long as the tweet isn't valid
                     boolean keepLooking = !TweetFilter.isValid(randomTweet);
-                    if(keepLooking){
-                        if(number==19){
-                            number=0;
-                        }else{
-                            number++;
-                        }
-                    }
 
                     while(keepLooking){
                         if(number==19){

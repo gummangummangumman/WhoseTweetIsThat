@@ -135,19 +135,19 @@ public class GameActivity extends AppCompatActivity {
     public void setUserInformation(String name, String picture, String at){
         if(where==0){
             button1.setText(name + "\n@" + at);
-            new ImageDownloader.DownloadPictureTask1(this).execute(picture);
+            new ImageDownloader.DownloadPictureTask(button1).execute(picture);
             where++;
         }else if(where==1){
             button2.setText(name + "\n@" + at);
-            new ImageDownloader.DownloadPictureTask2(this).execute(picture);
+            new ImageDownloader.DownloadPictureTask(button2).execute(picture);
             where++;
         }else if(where==2){
             button3.setText(name + "\n@" + at);
-            new ImageDownloader.DownloadPictureTask3(this).execute(picture);
+            new ImageDownloader.DownloadPictureTask(button3).execute(picture);
             where++;
         }else if(where==3){
             button4.setText(name + "\n@" + at);
-            new ImageDownloader.DownloadPictureTask4(this).execute(picture);
+            new ImageDownloader.DownloadPictureTask(button4).execute(picture);
             where = 0;
         }else{
             Log.e("Error", "that place to put the information does not exist: " + where);
