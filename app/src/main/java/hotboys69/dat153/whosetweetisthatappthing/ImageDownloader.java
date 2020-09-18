@@ -41,6 +41,7 @@ public class ImageDownloader {
         protected Drawable doInBackground(String...voids) {
 
             String url = voids[0];
+            url = url.replaceFirst("(?i)^http://", "https://");
 
             try {
                 InputStream is = (InputStream) new URL(url).getContent();
@@ -54,6 +55,10 @@ public class ImageDownloader {
 
         @Override
         protected void onPostExecute(Drawable result) {
+            if(result == null){
+                return;
+            }
+
             result.setBounds(0, 0, button.getHeight(), button.getHeight());
             button.setCompoundDrawables(result, null, null, null);
         }
