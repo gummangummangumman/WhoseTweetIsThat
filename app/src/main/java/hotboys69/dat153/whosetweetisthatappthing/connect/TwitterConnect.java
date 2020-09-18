@@ -1,6 +1,7 @@
 package hotboys69.dat153.whosetweetisthatappthing.connect;
 
 
+import android.content.res.Resources;
 import android.util.Log;
 
 import com.twitter.sdk.android.core.Callback;
@@ -14,6 +15,7 @@ import com.twitter.sdk.android.core.services.StatusesService;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import hotboys69.dat153.whosetweetisthatappthing.util.RandomTweetPicker;
 import hotboys69.dat153.whosetweetisthatappthing.util.TweetFilter;
 import hotboys69.dat153.whosetweetisthatappthing.view.GameActivity;
 import retrofit2.Call;
@@ -34,39 +36,15 @@ public class TwitterConnect {
             @Override
             public void success(Result<List<Tweet>> result) {
 
-                if(result.data.get(0).user.screenName.equals(callback.get().correctUserName)){
-                    int number = (int) Math.floor(Math.random() * result.data.size());
-                    String randomTweet = result.data.get(number).text;
-
-                    final int FIRST_NUMBER = number;
-
-                    //we should keep looking as long as the tweet isn't valid
-                    boolean keepLooking = !TweetFilter.isValid(randomTweet);
-
-                    while(keepLooking){
-                        if(number==19){
-                            number = 0;
-                        }else{
-                            number++;
-                        }
-                        randomTweet = result.data.get(number).text;
-                        keepLooking = !TweetFilter.isValid(randomTweet);
-
-                        if(keepLooking){
-                            Log.w("FILTERED_TWEET", randomTweet);
-                        }
-
-
-
-                        //if it has looped all the way around, just give up
-                        if (number == FIRST_NUMBER)
-                        {
-                            Log.w("INVALID_TWEETS", "all the tweets from " + result.data.get(0).user.screenName + " were invalid. Giving up.");
-                            keepLooking = false;
-                        }
+                if(result.data.get(0).user.screenName.equals(callback.get().correctUserName))
+                {
+                    try{
+                        String randomTweet = RandomTweetPicker.getRandomTweet(result.data);
+                        callback.get().setTweet(randomTweet);
+                    } catch (Resources.NotFoundException e){
+                        e.printStackTrace();
+                        callback.get().setFailed();
                     }
-
-                    callback.get().setTweet(randomTweet);
                 }
 
                 callback.get().setUserInformation(result.data.get(0).user.name, result.data.get(0).user.profileImageUrl, result.data.get(0).user.screenName);
