@@ -1,8 +1,4 @@
-package hotboys69.dat153.whosetweetisthatappthing;
-
-/**
- * Created by Trygve on 13.02.2018.
- */
+package hotboys69.dat153.whosetweetisthatappthing.util;
 
 public class TweetFilter {
 

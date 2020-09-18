@@ -1,4 +1,4 @@
-package hotboys69.dat153.whosetweetisthatappthing;
+package hotboys69.dat153.whosetweetisthatappthing.view;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
@@ -16,6 +16,12 @@ import com.twitter.sdk.android.core.Twitter;
 
 import java.util.ArrayList;
 
+import hotboys69.dat153.whosetweetisthatappthing.connect.ImageDownloader;
+import hotboys69.dat153.whosetweetisthatappthing.R;
+import hotboys69.dat153.whosetweetisthatappthing.util.TweeterRandomiser;
+import hotboys69.dat153.whosetweetisthatappthing.data.Settings;
+import hotboys69.dat153.whosetweetisthatappthing.connect.TwitterConnect;
+
 public class GameActivity extends AppCompatActivity {
 
     //score
@@ -31,7 +37,7 @@ public class GameActivity extends AppCompatActivity {
     Button button1, button2, button3, button4;
 
     //the username of the author of the current tweet shown
-    String correctUserName;
+    public String correctUserName;
 
     //the media player will play sounds on right or wrong guesses
     MediaPlayer successSound, failureSound;
@@ -85,14 +91,15 @@ public class GameActivity extends AppCompatActivity {
         resetUI();
 
         //generate 4 random tweeters
-        ArrayList<String> tweetersToGuessFrom = RandomTweeters.getRandomTweeters();
+        ArrayList<String> tweetersToGuessFrom = TweeterRandomiser.getRandomTweeters();
 
         //choose one as the correct one
-        correctUserName = RandomTweeters.getRandomTweeter(tweetersToGuessFrom);
+        correctUserName = TweeterRandomiser.getRandomTweeter(tweetersToGuessFrom);
 
         //get all the names and images for the 4 tweeters to guess from
         //it will also show the tweet from the right tweeter
-        for(String s:tweetersToGuessFrom){
+        for(String s:tweetersToGuessFrom)
+        {
             TwitterConnect.setUserInformation(s, this);
         }
     }
@@ -101,9 +108,7 @@ public class GameActivity extends AppCompatActivity {
      * should be called when the main tweet failed
      */
     public void setFailed(){
-        setTweet("Oops! Something went wrong while loading a tweeter. There might have been made too many calls to " +
-                "twitter and you might have to wait until you can " +
-                "fetch any more. \nThis can take up to 15 minutes.");
+        setTweet(getString(R.string.load_tweet_error));
         animateTweetView();
         failed = true;
         disableAllButtons();

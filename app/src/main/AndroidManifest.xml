@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity android:name=".view.MainActivity"
             android:theme="@style/MainTheme"
             android:screenOrientation="portrait"
             android:label="@string/app_name">
@@ -18,13 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoseActivity"
+        <activity android:name=".view.LoseActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".GameActivity"
+        <activity android:name=".view.GameActivity"
             android:theme="@style/GameTheme"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".view.SettingsActivity"
             android:screenOrientation="portrait"
             android:label="@string/settings" />
     </application>

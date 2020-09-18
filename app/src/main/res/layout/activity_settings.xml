@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="hotboys69.dat153.whosetweetisthatappthing.SettingsActivity">
+    tools:context="hotboys69.dat153.whosetweetisthatappthing.view.SettingsActivity">
 
     <Button
         android:id="@+id/resetHighScoreButton"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:backgroundTint="@color/twitterOfficial"
-        android:text="@string/backToMainMenu"
+        android:text="@string/back_to_main_menu"
         android:textColor="@color/twitterOfficialWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"

@@ -1,12 +1,8 @@
-package hotboys69.dat153.whosetweetisthatappthing;
+package hotboys69.dat153.whosetweetisthatappthing.data;
 
 import java.util.ArrayList;
 
-/**
- * Created by GuMMaN on 07.02.2018.
- */
-
-public class Data {
+public class Tweeters {
 
     public static ArrayList<String> nonmusicians;
     public static ArrayList<String> musicians;

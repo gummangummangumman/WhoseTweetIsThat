@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import hotboys69.dat153.whosetweetisthatappthing.util.TweetFilter;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 

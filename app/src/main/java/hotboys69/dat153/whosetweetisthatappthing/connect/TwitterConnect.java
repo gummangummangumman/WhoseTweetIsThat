@@ -1,4 +1,4 @@
-package hotboys69.dat153.whosetweetisthatappthing;
+package hotboys69.dat153.whosetweetisthatappthing.connect;
 
 
 import android.util.Log;
@@ -14,20 +14,18 @@ import com.twitter.sdk.android.core.services.StatusesService;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import hotboys69.dat153.whosetweetisthatappthing.util.TweetFilter;
+import hotboys69.dat153.whosetweetisthatappthing.view.GameActivity;
 import retrofit2.Call;
-
-/**
- * Created by GuMMaN on 09.02.2018.
- */
 
 public class TwitterConnect {
 
     /**
-     *
      * @param username the @ of the user
      * @param view GameActivity
      */
-    public static void setUserInformation(String username, GameActivity view) {
+    public static void setUserInformation(String username, GameActivity view)
+    {
         final WeakReference<GameActivity> callback = new WeakReference<GameActivity>(view);
         TwitterApiClient twitterApiClient = TwitterCore.getInstance().getApiClient();
         StatusesService statusesService = twitterApiClient.getStatusesService();
@@ -55,15 +53,16 @@ public class TwitterConnect {
                         keepLooking = !TweetFilter.isValid(randomTweet);
 
                         if(keepLooking){
-                            Log.w("filtered", randomTweet);
+                            Log.w("FILTERED_TWEET", randomTweet);
                         }
 
 
 
                         //if it has looped all the way around, just give up
-                        if(number==FIRST_NUMBER){
-                            Log.w("lol", "all the tweets from " + result.data.get(0).user.screenName + " were shit.");
-                            keepLooking=false;
+                        if (number == FIRST_NUMBER)
+                        {
+                            Log.w("INVALID_TWEETS", "all the tweets from " + result.data.get(0).user.screenName + " were invalid. Giving up.");
+                            keepLooking = false;
                         }
                     }
 

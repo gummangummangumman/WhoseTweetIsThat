@@ -1,4 +1,4 @@
-package hotboys69.dat153.whosetweetisthatappthing;
+package hotboys69.dat153.whosetweetisthatappthing.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;

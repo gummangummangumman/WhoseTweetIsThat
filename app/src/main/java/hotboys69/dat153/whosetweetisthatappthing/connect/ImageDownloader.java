@@ -1,32 +1,15 @@
-package hotboys69.dat153.whosetweetisthatappthing;
+package hotboys69.dat153.whosetweetisthatappthing.connect;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.renderscript.ScriptGroup;
-import android.util.Log;
-
 import java.io.IOException;
 import java.io.InputStream;
-import android.net.http.*;
 import android.widget.Button;
-
-import com.squareup.picasso.Downloader;
-
-import java.lang.ref.WeakReference;
 import java.net.URL;
 
 
-/**
- * Created by GuMMaN on 12.02.2018.
- */
 
 public class ImageDownloader {
-
-
-    final int IMAGE_BOUND_SIZE = 200;
-
 
     public static class DownloadPictureTask extends AsyncTask<String, Void, Drawable> {
 

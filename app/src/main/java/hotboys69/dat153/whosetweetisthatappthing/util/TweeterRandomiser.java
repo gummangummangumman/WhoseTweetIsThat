@@ -1,13 +1,11 @@
-package hotboys69.dat153.whosetweetisthatappthing;
+package hotboys69.dat153.whosetweetisthatappthing.util;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * Created by GuMMaN on 12.02.2018.
- */
+import hotboys69.dat153.whosetweetisthatappthing.data.Tweeters;
 
-public class RandomTweeters {
+public class TweeterRandomiser {
 
 
     /**
@@ -21,14 +19,14 @@ public class RandomTweeters {
 
         if(Math.random() > 0.5) //50% chance of musicians
         {
-            Collections.shuffle(Data.musicians);
+            Collections.shuffle(Tweeters.musicians);
             for(int i=0;i<4;i++){
-                tweetersToGuessFrom.add(Data.musicians.get(i));
+                tweetersToGuessFrom.add(Tweeters.musicians.get(i));
             }
         }else{
-            Collections.shuffle(Data.nonmusicians);
+            Collections.shuffle(Tweeters.nonmusicians);
             for(int i=0;i<4;i++){
-                tweetersToGuessFrom.add(Data.nonmusicians.get(i));
+                tweetersToGuessFrom.add(Tweeters.nonmusicians.get(i));
             }
         }
 

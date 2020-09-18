@@ -6,6 +6,9 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import hotboys69.dat153.whosetweetisthatappthing.data.Tweeters;
+import hotboys69.dat153.whosetweetisthatappthing.util.TweeterRandomiser;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -19,19 +22,19 @@ public class RandomTweeterTest {
 
     @Before
     public void setup(){
-        tweeters = RandomTweeters.getRandomTweeters();
+        tweeters = TweeterRandomiser.getRandomTweeters();
     }
 
     @Test
     public void theSizeIsFour() {
-        tweeters = RandomTweeters.getRandomTweeters();
+        tweeters = TweeterRandomiser.getRandomTweeters();
         assertEquals(tweeters.size(), 4);
     }
 
     @Test
     public void usernameExists(){
-        String username = RandomTweeters.getRandomTweeter(tweeters);
-        assertTrue(Data.musicians.contains(username) || Data.nonmusicians.contains(username));
+        String username = TweeterRandomiser.getRandomTweeter(tweeters);
+        assertTrue(Tweeters.musicians.contains(username) || Tweeters.nonmusicians.contains(username));
     }
 
     @After

@@ -1,4 +1,4 @@
-package hotboys69.dat153.whosetweetisthatappthing;
+package hotboys69.dat153.whosetweetisthatappthing.view;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,11 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import hotboys69.dat153.whosetweetisthatappthing.data.Tweeters;
+import hotboys69.dat153.whosetweetisthatappthing.R;
+import hotboys69.dat153.whosetweetisthatappthing.data.Settings;
+import hotboys69.dat153.whosetweetisthatappthing.connect.TweeterListFetcher;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,16 +26,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        if(Data.musicians==null){
-            Data.musicians = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.music)));
-            Data.defaultValues = true;
+        if(Tweeters.musicians==null){
+            Tweeters.musicians = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.music)));
+            Tweeters.defaultValues = true;
         }
-        if(Data.nonmusicians ==null){
-            Data.nonmusicians = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.politics)));
-            Data.defaultValues = true;
+        if(Tweeters.nonmusicians ==null){
+            Tweeters.nonmusicians = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.politics)));
+            Tweeters.defaultValues = true;
         }
 
-        if(Data.defaultValues){
+        if(Tweeters.defaultValues){
             new TweeterListFetcher.FetchTweeters().execute(getResources().getString(R.string.APIurl));
         }
 

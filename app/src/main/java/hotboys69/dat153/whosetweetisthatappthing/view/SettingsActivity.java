@@ -1,4 +1,4 @@
-package hotboys69.dat153.whosetweetisthatappthing;
+package hotboys69.dat153.whosetweetisthatappthing.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import hotboys69.dat153.whosetweetisthatappthing.R;
+import hotboys69.dat153.whosetweetisthatappthing.data.Settings;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -68,7 +71,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void requestResetHighScoreConfirmation(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.resetconfirmation);
+        builder.setMessage(R.string.reset_confirmation);
         builder.setTitle(R.string.reset);
         builder.setPositiveButton(R.string.reset, new DialogInterface.OnClickListener() {
             @Override

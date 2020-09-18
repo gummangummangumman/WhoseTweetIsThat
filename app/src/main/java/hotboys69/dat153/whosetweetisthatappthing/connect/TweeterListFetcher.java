@@ -1,18 +1,14 @@
-package hotboys69.dat153.whosetweetisthatappthing;
+package hotboys69.dat153.whosetweetisthatappthing.connect;
 
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.util.Log;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
+
+import hotboys69.dat153.whosetweetisthatappthing.data.Tweeters;
 
 public class TweeterListFetcher {
 
@@ -59,9 +55,9 @@ public class TweeterListFetcher {
         @Override
         protected void onPostExecute(ArrayList<String>[] result)
         {
-            Data.musicians = result[0];
-            Data.nonmusicians = result[1];
-            Data.defaultValues = true;
+            Tweeters.musicians = result[0];
+            Tweeters.nonmusicians = result[1];
+            Tweeters.defaultValues = true;
         }
 
     }
