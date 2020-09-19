@@ -6,8 +6,8 @@ android {
         applicationId "hotboys69.dat153.whosetweetisthatappthing"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 5
-        versionName "1.2"
+        versionCode 6
+        versionName "1.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -30,11 +30,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'com.twitter.sdk.android:twitter:3.1.1'
 }
-
-
-
-
-
 
 
 repositories {

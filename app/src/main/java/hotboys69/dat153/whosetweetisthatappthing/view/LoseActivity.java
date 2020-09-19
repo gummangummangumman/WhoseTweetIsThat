@@ -39,8 +39,11 @@ public class LoseActivity extends AppCompatActivity {
             gameOverText.setText(getString(R.string.new_highscore));
             scoreLoseText.setText(getString(R.string.highscore, Settings.getHighScore()));
             Settings.saveSettings(getBaseContext());
-            highScoreSound = MediaPlayer.create(this, R.raw.fanfare);
-            highScoreSound.start();
+            if(Settings.soundEnabled)
+            {
+                highScoreSound = MediaPlayer.create(this, R.raw.fanfare);
+                highScoreSound.start();
+            }
         } else {
             scoreLoseText.setText(getString(R.string.score_and_highscore, score, Settings.getHighScore()));
         }
