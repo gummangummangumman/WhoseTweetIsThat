@@ -33,16 +33,16 @@ public class LoseActivity extends AppCompatActivity {
         boolean newHighscore = Settings.postScore(score);
 
 
-        if(newHighscore){
+        if(newHighscore)
+        {
             gameOverText = findViewById(R.id.gameOverText);
-            gameOverText.setText("New highscore!");
-            scoreLoseText.setText("Highscore: " + Settings.getHighScore());
+            gameOverText.setText(getString(R.string.new_highscore));
+            scoreLoseText.setText(getString(R.string.highscore, Settings.getHighScore()));
             Settings.saveSettings(getBaseContext());
             highScoreSound = MediaPlayer.create(this, R.raw.fanfare);
             highScoreSound.start();
-        }
-        else{
-            scoreLoseText.setText("You got a score of: " + score + "\nHighscore: " + Settings.getHighScore());
+        } else {
+            scoreLoseText.setText(getString(R.string.score_and_highscore, score, Settings.getHighScore()));
         }
 
 

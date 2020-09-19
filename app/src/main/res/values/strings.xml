@@ -9,7 +9,11 @@
     <string name="settings">Settings</string>
     <string name="sound">Sound effects</string>
     <string name="game_over">Game Over</string>
-    <string name="reset">Reset highscore</string>
+    <string name="reset_highscore">Reset highscore</string>
+    <string name="highscore_has_been_reset">Highscore has been reset!</string>
+    <string name="new_highscore">New highscore!</string>
+    <string name="highscore">Highscore: %1$d</string>
+    <string name="score_and_highscore">You got a score of: %1$d\nHighscore: %2$d</string>
     <string name="reset_confirmation">Are you sure you want to reset the highscore? this can not be undone!</string>
     <string name="cancel">Cancel</string>
     <string name="load_tweet_error">Oops! Something went wrong while loading a tweeter. There might have been made too many calls to Twitter and you might have to wait until you can fetch any more.\nThis can take up to 15 minutes.</string>

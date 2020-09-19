@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import hotboys69.dat153.whosetweetisthatappthing.R;
@@ -18,13 +19,15 @@ public class SettingsActivity extends AppCompatActivity {
 
     Button menuButton, resetScoreButton;
     Switch soundSwitch;
+    TextView highscoreText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-
+        highscoreText = findViewById(R.id.highscoreText);
+        highscoreText.setText(getString(R.string.highscore, Settings.getHighScore()));
 
         soundSwitch = findViewById(R.id.soundSwitch);
 
@@ -72,8 +75,8 @@ public class SettingsActivity extends AppCompatActivity {
     public void requestResetHighScoreConfirmation(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.reset_confirmation);
-        builder.setTitle(R.string.reset);
-        builder.setPositiveButton(R.string.reset, new DialogInterface.OnClickListener() {
+        builder.setTitle(R.string.reset_highscore);
+        builder.setPositiveButton(R.string.reset_highscore, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 resetHighScore();
@@ -95,7 +98,8 @@ public class SettingsActivity extends AppCompatActivity {
         Settings.resetHighScore();
         Settings.saveSettings(getBaseContext());
 
-        Toast.makeText(this, "highscore reset!", Toast.LENGTH_SHORT).show();
+        highscoreText.setText(getString(R.string.highscore, Settings.getHighScore()));
 
+        Toast.makeText(this, getString(R.string.highscore_has_been_reset), Toast.LENGTH_SHORT).show();
     }
 }

@@ -10,13 +10,13 @@
         android:id="@+id/resetHighScoreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/wrongAnswerRed"
-        android:text="@string/reset"
+        android:text="@string/reset_highscore"
         android:textColor="@color/twitterOfficialWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/soundSwitch" />
+        app:layout_constraintTop_toBottomOf="@+id/highscoreText" />
 
     <Switch
         android:id="@+id/soundSwitch"
@@ -32,12 +32,23 @@
         android:id="@+id/backToMenuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="180dp"
         android:backgroundTint="@color/twitterOfficial"
         android:text="@string/back_to_main_menu"
         android:textColor="@color/twitterOfficialWhite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resetHighScoreButton" />
+
+    <TextView
+        android:id="@+id/highscoreText"
+        android:layout_width="257dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/highscore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soundSwitch" />
 </androidx.constraintlayout.widget.ConstraintLayout>
