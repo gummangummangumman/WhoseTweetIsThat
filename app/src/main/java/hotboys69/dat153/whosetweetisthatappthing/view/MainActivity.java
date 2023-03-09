@@ -1,18 +1,19 @@
 package hotboys69.dat153.whosetweetisthatappthing.view;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import hotboys69.dat153.whosetweetisthatappthing.data.Tweeters;
 import hotboys69.dat153.whosetweetisthatappthing.R;
-import hotboys69.dat153.whosetweetisthatappthing.data.Settings;
 import hotboys69.dat153.whosetweetisthatappthing.connect.TweeterListFetcher;
+import hotboys69.dat153.whosetweetisthatappthing.data.Settings;
+import hotboys69.dat153.whosetweetisthatappthing.data.Tweeters;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,33 +22,35 @@ public class MainActivity extends AppCompatActivity {
     Button settingsButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
-        if(Tweeters.musicians==null){
-            Tweeters.musicians = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.music)));
+        if (Tweeters.musicians == null) {
+            Tweeters.musicians = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.music)));
             Tweeters.defaultValues = true;
         }
-        if(Tweeters.nonmusicians ==null){
-            Tweeters.nonmusicians = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.politics)));
+        if (Tweeters.nonmusicians == null) {
+            Tweeters.nonmusicians = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.politics)));
             Tweeters.defaultValues = true;
         }
 
-        if(Tweeters.defaultValues){
+        if (Tweeters.defaultValues) {
             new TweeterListFetcher.FetchTweeters().execute(getResources().getString(R.string.APIurl));
         }
 
 
-        if(!Settings.loaded){
+        if (!Settings.loaded) {
             Settings.loadSettings(getBaseContext());
         }
 
         playButton = findViewById(R.id.playButton);
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 startGame();
             }
         });
@@ -56,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         settingsButton = findViewById(R.id.settingsButton);
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 goToSettings();
             }
         });

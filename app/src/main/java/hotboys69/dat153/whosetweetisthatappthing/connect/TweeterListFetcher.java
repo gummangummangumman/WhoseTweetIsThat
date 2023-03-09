@@ -20,33 +20,32 @@ public class TweeterListFetcher {
         }
 
         @Override
-        protected ArrayList<String>[] doInBackground(String...voids)
+        protected ArrayList<String>[] doInBackground(String... voids)
         {
             String url = voids[0];
             ArrayList<String>[] result = new ArrayList[2];
-            result[0] = new ArrayList<String>();
-            result[1] = new ArrayList<String>();
+            result[0] = new ArrayList<>();
+            result[1] = new ArrayList<>();
             boolean hasFoundSplit = false;
 
             try {
                 InputStream file = (InputStream) new URL(url).getContent();
                 Scanner scanner = new Scanner(file);
-                while(scanner.hasNextLine()){
+                while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
-                    if(line.equals("|")){
+                    if (line.equals("|")) {
                         hasFoundSplit = true;
-                    }else{
-                        if(!hasFoundSplit){
+                    } else {
+                        if (!hasFoundSplit) {
                             result[0].add(line);
-                        }else{
+                        } else {
                             result[1].add(line);
                         }
                     }
                 }
-            }catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
-            } catch(Error e)
-            {
+            } catch (Error e) {
                 e.printStackTrace();
             }
             return result;
@@ -59,7 +58,6 @@ public class TweeterListFetcher {
             Tweeters.nonmusicians = result[1];
             Tweeters.defaultValues = true;
         }
-
     }
 
 }

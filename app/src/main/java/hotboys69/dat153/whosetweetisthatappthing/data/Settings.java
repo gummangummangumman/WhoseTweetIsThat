@@ -3,11 +3,6 @@ package hotboys69.dat153.whosetweetisthatappthing.data;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
-
-/**
- * Created by Trygve on 14.02.2018.
- */
 
 public class Settings {
 
@@ -18,7 +13,8 @@ public class Settings {
     public static boolean loaded = false;
 
 
-    public static void loadSettings(Context context){
+    public static void loadSettings(Context context)
+    {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
 
         soundEnabled = pref.getBoolean("soundenabled", true);
@@ -27,13 +23,14 @@ public class Settings {
         loaded = true;
     }
 
-    public static void saveSettings(Context context){
+    public static void saveSettings(Context context)
+    {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor prefEditor = pref.edit();
 
         prefEditor.putInt("highscore", highScore);
         prefEditor.putBoolean("soundenabled", soundEnabled);
-        prefEditor.commit();
+        prefEditor.apply();
     }
 
 
@@ -41,11 +38,12 @@ public class Settings {
      * will only update the high-score if it's higher than the current one
      * returns true if there is a new high-score
      */
-    public static boolean postScore(int score){
-        if(score>highScore){
-            highScore=score;
+    public static boolean postScore(int score)
+    {
+        if (score > highScore) {
+            highScore = score;
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -53,11 +51,13 @@ public class Settings {
     /**
      * resets the score
      */
-    public static void resetHighScore(){
+    public static void resetHighScore()
+    {
         highScore = 0;
     }
 
-    public static int getHighScore(){
+    public static int getHighScore()
+    {
         return highScore;
     }
 

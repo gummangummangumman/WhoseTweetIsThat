@@ -2,11 +2,12 @@ package hotboys69.dat153.whosetweetisthatappthing.view;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import hotboys69.dat153.whosetweetisthatappthing.R;
 import hotboys69.dat153.whosetweetisthatappthing.data.Settings;
@@ -22,25 +23,24 @@ public class LoseActivity extends AppCompatActivity {
     MediaPlayer highScoreSound;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lose);
 
         scoreLoseText = findViewById(R.id.scoreLoseText);
 
-        score = (int)getIntent().getExtras().get("score");
+        score = (int) getIntent().getExtras().get("score");
 
         boolean newHighscore = Settings.postScore(score);
 
 
-        if(newHighscore)
-        {
+        if (newHighscore) {
             gameOverText = findViewById(R.id.gameOverText);
             gameOverText.setText(getString(R.string.new_highscore));
             scoreLoseText.setText(getString(R.string.highscore, Settings.getHighScore()));
             Settings.saveSettings(getBaseContext());
-            if(Settings.soundEnabled)
-            {
+            if (Settings.soundEnabled) {
                 highScoreSound = MediaPlayer.create(this, R.raw.fanfare);
                 highScoreSound.start();
             }
@@ -54,20 +54,23 @@ public class LoseActivity extends AppCompatActivity {
 
         playAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 startGame();
             }
         });
 
         mainMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 mainMenu();
             }
         });
     }
 
-    private void mainMenu() {
+    private void mainMenu()
+    {
         Intent menuIntent = new Intent(this, MainActivity.class);
         menuIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         menuIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -75,7 +78,8 @@ public class LoseActivity extends AppCompatActivity {
         startActivity(menuIntent);
     }
 
-    private void startGame() {
+    private void startGame()
+    {
         Intent gameIntent = new Intent(this, GameActivity.class);
         this.finish();
         startActivity(gameIntent);

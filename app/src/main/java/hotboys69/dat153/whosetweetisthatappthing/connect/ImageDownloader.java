@@ -2,11 +2,11 @@ package hotboys69.dat153.whosetweetisthatappthing.connect;
 
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.widget.Button;
+
 import java.io.IOException;
 import java.io.InputStream;
-import android.widget.Button;
 import java.net.URL;
-
 
 
 public class ImageDownloader {
@@ -21,8 +21,8 @@ public class ImageDownloader {
         }
 
         @Override
-        protected Drawable doInBackground(String...voids) {
-
+        protected Drawable doInBackground(String... voids)
+        {
             String url = voids[0];
             url = url.replaceFirst("(?i)^http://", "https://");
 
@@ -37,8 +37,9 @@ public class ImageDownloader {
         }
 
         @Override
-        protected void onPostExecute(Drawable result) {
-            if(result == null){
+        protected void onPostExecute(Drawable result)
+        {
+            if (result == null) {
                 return;
             }
 
