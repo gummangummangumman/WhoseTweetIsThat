@@ -2,6 +2,7 @@ package hotboys69.dat153.whosetweetisthatappthing.view;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -71,7 +72,7 @@ public class GameActivity extends AppCompatActivity {
         tweetView = findViewById(R.id.tweetView);
         scoreView = findViewById(R.id.scoreView);
 
-        scoreView.setText("Score: " + score);
+        scoreView.setText(getString(R.string.score, score));
 
         if(Settings.soundEnabled){
             successSound = MediaPlayer.create(this, R.raw.success);
@@ -137,6 +138,7 @@ public class GameActivity extends AppCompatActivity {
      * @param picture url to the picture
      * @param at the @ of the user (also called screenName, handle)
      */
+    @SuppressLint("SetTextI18n")
     public void setUserInformation(String name, String picture, String at){
         if(where==0){
             button1.setText(name + "\n@" + at);
@@ -173,7 +175,7 @@ public class GameActivity extends AppCompatActivity {
                 if(buttonText.toLowerCase().contains(correctUserName.toLowerCase())){
                     newButton.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
                     score++;
-                    scoreView.setText("Score: " + score);
+                    scoreView.setText(getString(R.string.score, score));
                     tweetView.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View view) {

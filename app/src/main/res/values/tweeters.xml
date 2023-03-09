@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="APIurl">https://gumman.one/api/tweeters.txt</string>
+    <string name="APIurl" translatable="false">https://gumman.one/api/tweeters.txt</string>
     <string-array name="music">
         <item>rihanna</item>
         <item>pitbull</item>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="back_to_main_menu">Hovedmeny</string>
+    <string name="play">Spill</string>
+    <string name="play_again">Spill igjen</string>
+    <string name="settings">Innstillinger</string>
+    <string name="sound">Lydeffekter</string>
+    <string name="game_over">Game Over</string>
+    <string name="reset_highscore">Nullstill rekord</string>
+    <string name="highscore_has_been_reset">Rekorden har blitt nullstilt!</string>
+    <string name="new_highscore">Ny rekord!</string>
+    <string name="highscore">Rekord: %1$d</string>
+    <string name="score">Poengsum: %1$d</string>
+    <string name="score_and_highscore">Du fikk en score på: %1$d\n Rekord: %2$d</string>
+    <string name="reset_confirmation">Er du sikker på at du vil nullstille rekorden din? Dette kan ikke angres!</string>
+    <string name="cancel">Avbryt</string>
+    <string name="load_tweet_error">Oops! Noe gikk galt med lasting av en tweeter. Det kan ha blitt gjort for mange kall til Twitter og kanskje du må vente før du kan hente flere tweets. Dette kan ta opp til 15 minutter.</string>
+</resources>

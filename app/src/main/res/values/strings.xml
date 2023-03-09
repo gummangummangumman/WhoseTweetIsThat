@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Whose Tweet Is That?</string>
-    <string name="com.twitter.sdk.android.CONSUMER_KEY">REDACTED</string>
-    <string name="com.twitter.sdk.android.CONSUMER_SECRET">REDACTED</string>
+    <string name="app_name" translatable="false">Whose Tweet Is That?</string>
+    <string name="com.twitter.sdk.android.CONSUMER_KEY" translatable="false">REDACTED</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET" translatable="false">REDACTED</string>
 
     <string name="back_to_main_menu">Main menu</string>
     <string name="play">Play</string>
@@ -13,6 +13,7 @@
     <string name="highscore_has_been_reset">Highscore has been reset!</string>
     <string name="new_highscore">New highscore!</string>
     <string name="highscore">Highscore: %1$d</string>
+    <string name="score">Score: %1$d</string>
     <string name="score_and_highscore">You got a score of: %1$d\nHighscore: %2$d</string>
     <string name="reset_confirmation">Are you sure you want to reset the highscore? this can not be undone!</string>
     <string name="cancel">Cancel</string>
