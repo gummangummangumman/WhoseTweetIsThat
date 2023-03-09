@@ -32,9 +32,8 @@
         android:layout_marginEnd="120dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="16dp"
-        android:textAlignment="center"
         android:textColor="@color/twitterOfficialBlack"
-        android:textSize="22dp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,7 +50,6 @@
         android:padding="0dp"
         android:text=""
         android:elevation="1dp"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tweetView" />
@@ -61,14 +59,12 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="340dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:background="@color/tw__composer_white"
-        android:padding="0dp"
-        android:text=""
         android:elevation="1dp"
-        android:textAlignment="center"
+        android:padding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button1" />
@@ -85,7 +81,6 @@
         android:padding="0dp"
         android:text=""
         android:elevation="1dp"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
@@ -102,7 +97,6 @@
         android:padding="0dp"
         android:text=""
         android:elevation="1dp"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />

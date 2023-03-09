@@ -9,3 +9,12 @@
 .externalNativeBuild
 ./idea/vcs.xml
 app/release/
+*.apk
+.cxx
+
+/.idea/caches
+/.idea/modules.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/misc.xml
+
