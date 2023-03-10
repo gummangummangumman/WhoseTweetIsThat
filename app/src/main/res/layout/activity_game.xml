@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/scoreView"
+            android:id="@+id/score_view"
             android:layout_width="144dp"
             android:layout_height="28dp"
             android:layout_marginStart="120dp"
@@ -26,7 +26,7 @@
             tools:text="Score: 10" />
 
         <TextView
-            android:id="@+id/tweetView"
+            android:id="@+id/tweet_view"
             android:layout_width="345dp"
             android:layout_height="155dp"
             android:layout_marginStart="8dp"
@@ -42,7 +42,7 @@
             android:textColor="@color/twitterOfficialBlack"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scoreView" />
+            app:layout_constraintTop_toBottomOf="@+id/score_view" />
 
         <Button
             android:id="@+id/button1"
@@ -55,10 +55,9 @@
             android:background="@color/tw__composer_white"
             android:elevation="1dp"
             android:padding="0dp"
-            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tweetView" />
+            app:layout_constraintTop_toBottomOf="@+id/tweet_view" />
 
         <Button
             android:id="@+id/button2"
@@ -86,7 +85,6 @@
             android:background="@color/tw__composer_white"
             android:elevation="1dp"
             android:padding="0dp"
-            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button2" />
@@ -99,15 +97,27 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="32dp"
             android:background="@color/tw__composer_white"
             android:elevation="1dp"
             android:padding="0dp"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/twitterOfficial"
+            android:text="@string/next"
+            android:textColor="@color/twitterOfficialWhite"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

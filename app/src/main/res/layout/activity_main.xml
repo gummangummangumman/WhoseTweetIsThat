@@ -14,7 +14,7 @@
         android:layout_centerInParent="true">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/image_view"
             android:layout_width="355dp"
             android:layout_height="133dp"
             android:layout_alignParentTop="true"
@@ -28,10 +28,10 @@
             app:srcCompat="@drawable/whosetweet2" />
 
         <Button
-            android:id="@+id/playButton"
+            android:id="@+id/play_button"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView"
+            android:layout_below="@+id/image_view"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
             android:backgroundTint="@color/twitterOfficial"
@@ -39,21 +39,21 @@
             android:textColor="@color/twitterOfficialWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/image_view" />
 
         <Button
-            android:id="@+id/settingsButton"
+            android:id="@+id/settings_button"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/playButton"
-            android:layout_below="@+id/playButton"
+            android:layout_alignStart="@+id/play_button"
+            android:layout_below="@+id/play_button"
             android:layout_marginTop="23dp"
             android:backgroundTint="@color/twitterOfficial"
             android:text="@string/settings"
             android:textColor="@color/twitterOfficialWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/playButton" />
+            app:layout_constraintTop_toBottomOf="@+id/play_button" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,12 @@
 package hotboys69.dat153.whosetweetisthatappthing.view;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,42 +26,26 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        highscoreText = findViewById(R.id.highscoreText);
+        highscoreText = findViewById(R.id.highscore_text);
         highscoreText.setText(getString(R.string.highscore, Settings.getHighScore()));
 
-        soundSwitch = findViewById(R.id.soundSwitch);
+        soundSwitch = findViewById(R.id.sound_switch);
 
         //show it as what it is in the settings
         soundSwitch.setChecked(Settings.soundEnabled);
 
 
-        soundSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
-            {
-                Settings.soundEnabled = b;
-                Settings.saveSettings(getBaseContext());
-            }
+        soundSwitch.setOnCheckedChangeListener((compoundButton, b) -> {
+            Settings.soundEnabled = b;
+            Settings.saveSettings(getBaseContext());
         });
 
 
-        menuButton = findViewById(R.id.backToMenuButton);
-        menuButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                mainMenu();
-            }
-        });
+        menuButton = findViewById(R.id.back_to_menu_button);
+        menuButton.setOnClickListener(view -> mainMenu());
 
-        resetScoreButton = findViewById(R.id.resetHighScoreButton);
-        resetScoreButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                requestResetHighScoreConfirmation();
-            }
-        });
+        resetScoreButton = findViewById(R.id.reset_high_score_button);
+        resetScoreButton.setOnClickListener(view -> requestResetHighScoreConfirmation());
     }
 
 
@@ -83,19 +64,9 @@ public class SettingsActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.reset_confirmation);
         builder.setTitle(R.string.reset_highscore);
-        builder.setPositiveButton(R.string.reset_highscore, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
-                resetHighScore();
-            }
-        });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
-                //
-            }
+        builder.setPositiveButton(R.string.reset_highscore, (dialogInterface, i) -> resetHighScore());
+        builder.setNegativeButton(R.string.cancel, (dialogInterface, i) -> {
+            //
         });
 
         builder.create().show();

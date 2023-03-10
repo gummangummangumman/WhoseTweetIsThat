@@ -3,7 +3,6 @@ package hotboys69.dat153.whosetweetisthatappthing.view;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -28,7 +27,7 @@ public class LoseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lose);
 
-        scoreLoseText = findViewById(R.id.scoreLoseText);
+        scoreLoseText = findViewById(R.id.score_lose_text);
 
         score = (int) getIntent().getExtras().get("score");
 
@@ -36,7 +35,7 @@ public class LoseActivity extends AppCompatActivity {
 
 
         if (newHighscore) {
-            gameOverText = findViewById(R.id.gameOverText);
+            gameOverText = findViewById(R.id.game_over_text);
             gameOverText.setText(getString(R.string.new_highscore));
             scoreLoseText.setText(getString(R.string.highscore, Settings.getHighScore()));
             Settings.saveSettings(getBaseContext());
@@ -49,24 +48,12 @@ public class LoseActivity extends AppCompatActivity {
         }
 
 
-        playAgainButton = findViewById(R.id.playAgainButton);
-        mainMenuButton = findViewById(R.id.mainMenuButton);
+        playAgainButton = findViewById(R.id.play_again_button);
+        mainMenuButton = findViewById(R.id.main_menu_button);
 
-        playAgainButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                startGame();
-            }
-        });
+        playAgainButton.setOnClickListener(view -> startGame());
 
-        mainMenuButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                mainMenu();
-            }
-        });
+        mainMenuButton.setOnClickListener(view -> mainMenu());
     }
 
     private void mainMenu()

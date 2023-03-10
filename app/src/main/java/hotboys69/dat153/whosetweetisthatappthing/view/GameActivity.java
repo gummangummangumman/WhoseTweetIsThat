@@ -36,7 +36,7 @@ public class GameActivity extends AppCompatActivity {
     TextView tweetView, scoreView;
 
     //the 4 buttons etc
-    Button button1, button2, button3, button4;
+    Button button1, button2, button3, button4, nextButton;
 
     //the username of the author of the current tweet shown
     public String correctUserName;
@@ -69,8 +69,10 @@ public class GameActivity extends AppCompatActivity {
         button3 = setOnClick(button3);
         button4 = setOnClick(button4);
 
-        tweetView = findViewById(R.id.tweetView);
-        scoreView = findViewById(R.id.scoreView);
+        nextButton = findViewById(R.id.next_button);
+
+        tweetView = findViewById(R.id.tweet_view);
+        scoreView = findViewById(R.id.score_view);
 
         scoreView.setText(getString(R.string.score, score));
 
@@ -114,13 +116,9 @@ public class GameActivity extends AppCompatActivity {
         animateTweetView();
         failed = true;
         disableAllButtons();
-        tweetView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                showNewTweet();
-            }
-        });
+        tweetView.setOnClickListener(view -> showNewTweet());
+        nextButton.setVisibility(View.VISIBLE);
+        nextButton.setOnClickListener(view -> showNewTweet());
     }
 
 
@@ -173,50 +171,39 @@ public class GameActivity extends AppCompatActivity {
     {
 
         final Button newButton = button;
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                String buttonText = newButton.getText().toString();
-                if (buttonText.toLowerCase().contains(correctUserName.toLowerCase())) {
-                    newButton.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
-                    score++;
-                    scoreView.setText(getString(R.string.score, score));
-                    tweetView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view)
-                        {
-                            showNewTweet();
-                        }
-                    });
+        button.setOnClickListener(view -> {
+            String buttonText = newButton.getText().toString();
+            if (buttonText.toLowerCase().contains(correctUserName.toLowerCase())) {
+                newButton.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
+                score++;
+                scoreView.setText(getString(R.string.score, score));
 
-                    if (Settings.soundEnabled) {
-                        successSound.start();
-                    }
+                nextButton.setVisibility(View.VISIBLE);
+                nextButton.setOnClickListener(v -> showNewTweet());
+                tweetView.setOnClickListener(v -> showNewTweet());
 
-                } else {
-                    newButton.setBackgroundColor(getResources().getColor(R.color.wrongAnswerRed));
-                    Button correctButton = getCorrectButton();
-                    if (correctButton != null)
-                        correctButton.setBackgroundColor(getResources()
-                                .getColor(R.color.correctAnswerGreen));
-
-                    tweetView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view)
-                        {
-                            loseGame();
-                        }
-                    });
-
-                    if (Settings.soundEnabled) {
-                        failureSound.start();
-                    }
+                if (Settings.soundEnabled) {
+                    successSound.start();
                 }
 
-                disableAllButtons();
-                animateTweetView();
+            } else {
+                newButton.setBackgroundColor(getResources().getColor(R.color.wrongAnswerRed));
+                Button correctButton = getCorrectButton();
+                if (correctButton != null)
+                    correctButton.setBackgroundColor(getResources()
+                            .getColor(R.color.correctAnswerGreen));
+
+                nextButton.setVisibility(View.VISIBLE);
+                nextButton.setOnClickListener(v -> loseGame());
+                tweetView.setOnClickListener(v -> loseGame());
+
+                if (Settings.soundEnabled) {
+                    failureSound.start();
+                }
             }
+
+            disableAllButtons();
+            animateTweetView();
         });
         return newButton;
     }
@@ -264,6 +251,7 @@ public class GameActivity extends AppCompatActivity {
         button2.setCompoundDrawables(null, null, null, null);
         button3.setCompoundDrawables(null, null, null, null);
         button4.setCompoundDrawables(null, null, null, null);
+        nextButton.setVisibility(View.INVISIBLE);
         tweetView.setOnClickListener(null);
         tweetView.setText("");
         if (anim != null) {
@@ -294,13 +282,8 @@ public class GameActivity extends AppCompatActivity {
         anim = new ValueAnimator();
         anim.setIntValues(Color.WHITE, getResources().getColor(R.color.animateCard));
         anim.setEvaluator(new ArgbEvaluator());
-        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator)
-            {
-                tweetView.setBackgroundColor((Integer) valueAnimator.getAnimatedValue());
-            }
-        });
+        anim.addUpdateListener(valueAnimator ->
+                tweetView.setBackgroundColor((Integer) valueAnimator.getAnimatedValue()));
 
         anim.setDuration(2000);
         anim.setRepeatMode(ValueAnimator.REVERSE);
