@@ -18,3 +18,4 @@ app/release/
 /.idea/assetWizardSettings.xml
 /.idea/misc.xml
 
+secrets.xml

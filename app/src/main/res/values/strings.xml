@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name" translatable="false">Whose Tweet Is That?</string>
-    <string name="com.twitter.sdk.android.CONSUMER_KEY" translatable="false">REDACTED</string>
-    <string name="com.twitter.sdk.android.CONSUMER_SECRET" translatable="false">REDACTED</string>
 
     <string name="back_to_main_menu">Main menu</string>
     <string name="play">Play</string>
