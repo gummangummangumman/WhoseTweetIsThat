@@ -11,9 +11,9 @@
     <string name="new_highscore">Neuer Rekord!</string>
     <string name="highscore">Rekord: %1$d</string>
     <string name="score">Punkte: %1$d</string>
-    <string name="score_and_highscore">Du fikk en score på: %1$d\n Rekord: %2$d</string>
-    <string name="reset_confirmation">Bist du sicher dass du deinen Rekord zurücksetzen willst? Es kann nicht wiederhergestellt sein!</string>
+    <string name="score_and_highscore">Du hast %1$d Punkte erreicht!\n Rekord: %2$d</string>
+    <string name="reset_confirmation">Bist du sicher dass du deinen Rekord zurücksetzen willst? Er kann nicht wiederhergestellt werden!</string>
     <string name="cancel">Abbrechen</string>
-    <string name="load_tweet_error">Ups! Etwas ist schief gegangen während einen Tweeter gelädt wurde. Det kan ha blitt gjort for mange kall til Twitter og kanskje du må vente før du kan hente flere tweets. Dette kan ta opp til 15 minutter.</string>
+    <string name="load_tweet_error">Ups! Etwas ist schiefgegangen während ein Tweeter geladen wurde. Es könnten zu viele Anfragen an Twitter gesendet worden sein und möglicherweise musst du warten, bevor du weitere Tweets abrufen kannst. Es kann bis 15 Minuten dauern.</string>
     <string name="next">Nächste</string>
 </resources>
