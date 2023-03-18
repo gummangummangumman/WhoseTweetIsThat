@@ -33,7 +33,7 @@ public class TweeterListFetcher {
                 Scanner scanner = new Scanner(file);
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
-                    if (line.equals("|")) {
+                    if (line.trim().equals("|")) {
                         hasFoundSplit = true;
                     } else {
                         if (!hasFoundSplit) {
@@ -53,8 +53,9 @@ public class TweeterListFetcher {
         protected void onPostExecute(ArrayList<String>[] result)
         {
             Tweeters.musicians = result[0];
-            Tweeters.nonmusicians = result[1];
-            Tweeters.defaultValues = true;
+            Tweeters.non_musicians = result[1];
+            Tweeters.repopulateDefaultLists();
+            Tweeters.defaultValues = false;
         }
     }
 

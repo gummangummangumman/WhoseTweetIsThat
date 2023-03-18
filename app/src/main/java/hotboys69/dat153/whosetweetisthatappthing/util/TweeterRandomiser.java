@@ -17,17 +17,12 @@ public class TweeterRandomiser {
     {
         ArrayList<String> tweetersToGuessFrom = new ArrayList<>();
 
-        if (Math.random() > 0.5) //50% chance of musicians
-        {
-            Collections.shuffle(Tweeters.musicians);
-            for (int i = 0; i < 4; i++) {
-                tweetersToGuessFrom.add(Tweeters.musicians.get(i));
-            }
-        } else {
-            Collections.shuffle(Tweeters.nonmusicians);
-            for (int i = 0; i < 4; i++) {
-                tweetersToGuessFrom.add(Tweeters.nonmusicians.get(i));
-            }
+        ArrayList<String> tweeterList = Tweeters.tweeters
+                .get((int) Math.floor(Tweeters.tweeters.size() * Math.random()));
+
+        Collections.shuffle(tweeterList);
+        for (int i = 0; i < 4; i++) {
+            tweetersToGuessFrom.add(tweeterList.get(i));
         }
 
         return tweetersToGuessFrom;

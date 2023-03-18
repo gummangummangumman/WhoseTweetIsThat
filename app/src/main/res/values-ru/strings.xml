@@ -3,6 +3,7 @@
     <string name="back_to_main_menu">Главное меню</string>
     <string name="play">Играть</string>
     <string name="play_again">Играть снова</string>
+    <string name="tweeters"></string>
     <string name="settings">Настройки</string>
     <string name="sound">Звуковые эффекты</string>
     <string name="game_over">Игра окончена</string>

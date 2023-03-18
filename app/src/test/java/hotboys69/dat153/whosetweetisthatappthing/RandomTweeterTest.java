@@ -31,7 +31,7 @@ public class RandomTweeterTest {
                 "britneyspears",
                 "BrunoMars",
                 "PostMalone"));
-        Tweeters.nonmusicians = new ArrayList<>(Arrays.asList(
+        Tweeters.non_musicians = new ArrayList<>(Arrays.asList(
                 "realDonaldTrump",
                 "HillaryClinton",
                 "BillGates",
@@ -55,7 +55,7 @@ public class RandomTweeterTest {
     {
         String username = TweeterRandomiser.getRandomTweeter(tweeters);
         assertTrue(Tweeters.musicians.contains(username)
-                || Tweeters.nonmusicians.contains(username));
+                || Tweeters.non_musicians.contains(username));
     }
 
     @After
