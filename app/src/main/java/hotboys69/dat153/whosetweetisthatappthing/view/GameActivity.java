@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.twitter.sdk.android.core.Twitter;
 
@@ -142,24 +143,30 @@ public class GameActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     public void setUserInformation(String name, String picture, String at)
     {
-        if (where == 0) {
-            button1.setText(name + "\n@" + at);
-            new ImageDownloader.DownloadPictureTask(button1).execute(picture);
-            where++;
-        } else if (where == 1) {
-            button2.setText(name + "\n@" + at);
-            new ImageDownloader.DownloadPictureTask(button2).execute(picture);
-            where++;
-        } else if (where == 2) {
-            button3.setText(name + "\n@" + at);
-            new ImageDownloader.DownloadPictureTask(button3).execute(picture);
-            where++;
-        } else if (where == 3) {
-            button4.setText(name + "\n@" + at);
-            new ImageDownloader.DownloadPictureTask(button4).execute(picture);
-            where = 0;
-        } else {
-            Log.e("Error", "that place to put the information does not exist: " + where);
+        switch (where) {
+            case 0:
+                button1.setText(name + "\n@" + at);
+                new ImageDownloader.DownloadPictureTask(button1).execute(picture);
+                where++;
+                break;
+            case 1:
+                button2.setText(name + "\n@" + at);
+                new ImageDownloader.DownloadPictureTask(button2).execute(picture);
+                where++;
+                break;
+            case 2:
+                button3.setText(name + "\n@" + at);
+                new ImageDownloader.DownloadPictureTask(button3).execute(picture);
+                where++;
+                break;
+            case 3:
+                button4.setText(name + "\n@" + at);
+                new ImageDownloader.DownloadPictureTask(button4).execute(picture);
+                where = 0;
+                break;
+            default:
+                Log.e("Error", "that place to put the information does not exist: " + where);
+                break;
         }
     }
 
@@ -169,12 +176,12 @@ public class GameActivity extends AppCompatActivity {
      */
     public Button setOnClick(Button button)
     {
-
         final Button newButton = button;
         button.setOnClickListener(view -> {
             String buttonText = newButton.getText().toString();
             if (buttonText.toLowerCase().contains(correctUserName.toLowerCase())) {
-                newButton.setBackgroundColor(getResources().getColor(R.color.correctAnswerGreen));
+                newButton.setBackgroundColor(ContextCompat
+                        .getColor(getApplicationContext(), R.color.correctAnswerGreen));
                 score++;
                 scoreView.setText(getString(R.string.score, score));
 
@@ -187,11 +194,12 @@ public class GameActivity extends AppCompatActivity {
                 }
 
             } else {
-                newButton.setBackgroundColor(getResources().getColor(R.color.wrongAnswerRed));
+                newButton.setBackgroundColor(ContextCompat
+                        .getColor(getApplicationContext(), R.color.wrongAnswerRed));
                 Button correctButton = getCorrectButton();
                 if (correctButton != null)
-                    correctButton.setBackgroundColor(getResources()
-                            .getColor(R.color.correctAnswerGreen));
+                    correctButton.setBackgroundColor(ContextCompat
+                            .getColor(getApplicationContext(), R.color.correctAnswerGreen));
 
                 nextButton.setVisibility(View.VISIBLE);
                 nextButton.setOnClickListener(v -> loseGame());
@@ -235,10 +243,12 @@ public class GameActivity extends AppCompatActivity {
      */
     public void resetUI()
     {
-        button1.setBackgroundColor(getResources().getColor(R.color.twitterOfficialWhite));
-        button2.setBackgroundColor(getResources().getColor(R.color.twitterOfficialWhite));
-        button3.setBackgroundColor(getResources().getColor(R.color.twitterOfficialWhite));
-        button4.setBackgroundColor(getResources().getColor(R.color.twitterOfficialWhite));
+        int twitterWhite = ContextCompat
+                .getColor(getApplicationContext(), R.color.twitterOfficialWhite);
+        button1.setBackgroundColor(twitterWhite);
+        button2.setBackgroundColor(twitterWhite);
+        button3.setBackgroundColor(twitterWhite);
+        button4.setBackgroundColor(twitterWhite);
         button1.setEnabled(true);
         button2.setEnabled(true);
         button3.setEnabled(true);

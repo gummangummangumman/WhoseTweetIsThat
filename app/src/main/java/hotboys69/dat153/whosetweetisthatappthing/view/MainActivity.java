@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (Tweeters.defaultValues) {
-            new TweeterListFetcher.FetchTweeters().execute(getResources().getString(R.string.APIurl));
+            new TweeterListFetcher.FetchTweeters()
+                    .execute(getResources().getString(R.string.APIurl));
         }
 
 

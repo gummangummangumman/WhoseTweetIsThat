@@ -28,8 +28,7 @@ public class ImageDownloader {
 
             try {
                 InputStream is = (InputStream) new URL(url).getContent();
-                Drawable d = Drawable.createFromStream(is, "lol");
-                return d;
+                return Drawable.createFromStream(is, "lol");
             } catch (IOException e) {
                 e.printStackTrace();
             }

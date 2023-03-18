@@ -43,9 +43,7 @@ public class TweeterListFetcher {
                         }
                     }
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (Error e) {
+            } catch (IOException | Error e) {
                 e.printStackTrace();
             }
             return result;

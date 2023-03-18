@@ -1,15 +1,14 @@
 package hotboys69.dat153.whosetweetisthatappthing.view;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.Toast;
+import androidx.appcompat.widget.SwitchCompat;
 
 import hotboys69.dat153.whosetweetisthatappthing.R;
 import hotboys69.dat153.whosetweetisthatappthing.data.Settings;
@@ -17,7 +16,7 @@ import hotboys69.dat153.whosetweetisthatappthing.data.Settings;
 public class SettingsActivity extends AppCompatActivity {
 
     Button menuButton, resetScoreButton;
-    Switch soundSwitch;
+    SwitchCompat soundSwitch;
     TextView highscoreText;
 
     @Override
@@ -33,7 +32,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         //show it as what it is in the settings
         soundSwitch.setChecked(Settings.soundEnabled);
-
 
         soundSwitch.setOnCheckedChangeListener((compoundButton, b) -> {
             Settings.soundEnabled = b;
