@@ -17,5 +17,6 @@ app/release/
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 /.idea/misc.xml
+/.idea/deploymentTargetDropDown.xml
 
 secrets.xml
