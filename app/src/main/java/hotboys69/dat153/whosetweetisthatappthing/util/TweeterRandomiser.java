@@ -2,6 +2,7 @@ package hotboys69.dat153.whosetweetisthatappthing.util;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import hotboys69.dat153.whosetweetisthatappthing.data.Tweeters;
 
@@ -13,11 +14,11 @@ public class TweeterRandomiser {
      *
      * @return the usernames of 4 random tweeters
      */
-    public static ArrayList<String> getRandomTweeters()
+    public static List<String> getRandomTweeters()
     {
-        ArrayList<String> tweetersToGuessFrom = new ArrayList<>();
+        List<String> tweetersToGuessFrom = new ArrayList<>();
 
-        ArrayList<String> tweeterList = Tweeters.tweeters
+        List<String> tweeterList = Tweeters.tweeters
                 .get((int) Math.floor(Tweeters.tweeters.size() * Math.random()));
 
         Collections.shuffle(tweeterList);
@@ -35,7 +36,7 @@ public class TweeterRandomiser {
      * @param tweeters the 4 tweeters to guess from
      * @return one of their usernames
      */
-    public static String getRandomTweeter(ArrayList<String> tweeters)
+    public static String getRandomTweeter(List<String> tweeters)
     {
         return (tweeters.get((int) Math.floor(Math.random() * tweeters.size())));
     }

@@ -9,7 +9,7 @@ public class Tweeters {
     /**
      * Singleton collection of possible lists of tweeters to guess from
      */
-    public static List<ArrayList<String>> tweeters;
+    public static List<List<String>> tweeters;
 
     public static ArrayList<String> non_musicians;
     public static ArrayList<String> musicians;

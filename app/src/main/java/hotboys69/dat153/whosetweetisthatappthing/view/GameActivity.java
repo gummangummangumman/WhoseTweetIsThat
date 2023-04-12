@@ -17,7 +17,7 @@ import androidx.core.content.ContextCompat;
 
 import com.twitter.sdk.android.core.Twitter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import hotboys69.dat153.whosetweetisthatappthing.R;
 import hotboys69.dat153.whosetweetisthatappthing.connect.ImageDownloader;
@@ -96,7 +96,7 @@ public class GameActivity extends AppCompatActivity {
         resetUI();
 
         //generate 4 random tweeters
-        ArrayList<String> tweetersToGuessFrom = TweeterRandomiser.getRandomTweeters();
+        List<String> tweetersToGuessFrom = TweeterRandomiser.getRandomTweeters();
 
         //choose one as the correct one
         correctUserName = TweeterRandomiser.getRandomTweeter(tweetersToGuessFrom);

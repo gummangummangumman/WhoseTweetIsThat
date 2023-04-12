@@ -6,4 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".view.TweeterActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/add_list_button"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/circle_button"
+        android:text="+"
+        android:backgroundTint="@color/twitterOfficial"
+        android:textColor="@color/twitterOfficialWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view"
+        tools:ignore="HardcodedText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

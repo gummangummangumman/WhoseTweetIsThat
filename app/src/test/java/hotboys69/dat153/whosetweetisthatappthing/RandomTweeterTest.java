@@ -9,13 +9,14 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import hotboys69.dat153.whosetweetisthatappthing.data.Tweeters;
 import hotboys69.dat153.whosetweetisthatappthing.util.TweeterRandomiser;
 
 public class RandomTweeterTest {
 
-    public ArrayList<String> tweeters;
+    public List<String> tweeters;
 
     @Before
     public void setup()
