@@ -9,13 +9,13 @@ import java.util.List;
 
 import hotboys69.dat153.whosetweetisthatappthing.data.entities.Category;
 import hotboys69.dat153.whosetweetisthatappthing.data.entities.Tweeter;
-import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCategories;
+import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCategory;
 
 @Dao
 public interface TweeterDao {
 
     @Query("SELECT * FROM category")
-    LiveData<List<TweeterCategories>> getAll();
+    LiveData<List<TweeterCategory>> getAll();
 
     @Insert
     void insertCategory(Category category);

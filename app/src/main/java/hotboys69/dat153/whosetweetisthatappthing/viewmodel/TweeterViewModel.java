@@ -9,7 +9,7 @@ import java.util.List;
 
 import hotboys69.dat153.whosetweetisthatappthing.data.TweeterRepository;
 import hotboys69.dat153.whosetweetisthatappthing.data.entities.Category;
-import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCategories;
+import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCategory;
 
 public class TweeterViewModel extends AndroidViewModel {
 
@@ -21,29 +21,10 @@ public class TweeterViewModel extends AndroidViewModel {
         tweeterRepository = new TweeterRepository(application);
     }
 
-    public LiveData<List<TweeterCategories>> getCategoriesLiveData()
+    public LiveData<List<TweeterCategory>> getCategoriesLiveData()
     {
         return tweeterRepository.getAllCategories();
-        /*LiveData<List<Category>> categoriesLiveData = tweeterRepository.getAllCategories();
-
-        return Transformations
-                .map(categoriesLiveData, categories -> {
-                    for (Category category : categories) {
-                        category.tweeters = new ArrayList<>();
-                        LiveData<List<Tweeter>> tweetersForCategoryLiveData = tweeterRepository
-                                .getTweetersForCategory(category.categoryId);
-
-                        //TODO make it work
-                        tweetersForCategoryLiveData
-                                .observeForever(tweeters -> category.tweeters = tweeters);
-                    }
-
-                    return categories;
-                });*/
     }
-
-
-
 
     public void insert(Category category)
     {

@@ -8,11 +8,11 @@ import java.util.List;
 
 import hotboys69.dat153.whosetweetisthatappthing.data.entities.Category;
 import hotboys69.dat153.whosetweetisthatappthing.data.entities.Tweeter;
-import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCategories;
+import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCategory;
 
 public class TweeterRepository {
     private final TweeterDao tweeterDao;
-    private final LiveData<List<TweeterCategories>> categories;
+    private final LiveData<List<TweeterCategory>> categories;
 
     public TweeterRepository(Application application) {
         DataBase db = DataBase.getDatabase(application);
@@ -20,7 +20,7 @@ public class TweeterRepository {
         categories = tweeterDao.getAll();
     }
 
-    public LiveData<List<TweeterCategories>> getAllCategories() {
+    public LiveData<List<TweeterCategory>> getAllCategories() {
         return categories;
     }
 
