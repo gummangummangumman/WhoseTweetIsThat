@@ -4,7 +4,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
@@ -12,12 +14,16 @@ import java.util.List;
 
 import hotboys69.dat153.whosetweetisthatappthing.R;
 import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCategory;
+import hotboys69.dat153.whosetweetisthatappthing.viewmodel.TweeterViewModel;
 
 public class TweeterListAdapter extends BaseExpandableListAdapter {
     private final List<TweeterCategory> categories;
 
-    public TweeterListAdapter(List<TweeterCategory> dataList) {
+    TweeterViewModel viewModel;
+
+    public TweeterListAdapter(List<TweeterCategory> dataList, TweeterViewModel viewModel) {
         this.categories = dataList;
+        this.viewModel = viewModel;
     }
 
     @Override
@@ -71,6 +77,22 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
         String data = categories.get(groupPosition).toString();
         TextView textView = view.findViewById(R.id.title);
         textView.setText(data);
+        if (isExpanded && groupPosition > 1) {
+            Button deleteButton = view.findViewById(R.id.delete_button);
+            deleteButton.setVisibility(View.VISIBLE);
+            deleteButton.setOnClickListener(button -> {
+                        boolean deleted = viewModel.deleteCategory(categories.get(groupPosition));
+                        if (deleted) {
+                            Toast.makeText(view.getContext(),
+                                    R.string.tweeters_category_deleted, Toast.LENGTH_SHORT)
+                                    .show();
+                        } else {
+                            Toast.makeText(view.getContext(),
+                                    R.string.tweeters_category_not_deleted, Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+            });
+        }
         return view;
     }
 

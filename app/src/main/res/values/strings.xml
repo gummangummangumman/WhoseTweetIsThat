@@ -18,4 +18,7 @@
     <string name="next">Next</string>
     <string name="cancel">Cancel</string>
     <string name="load_tweet_error">Oops! Something went wrong while loading a tweeter. There might have been made too many calls to Twitter and you might have to wait until you can fetch any more.\nThis can take up to 15 minutes.</string>
+
+    <string name="tweeters_category_deleted">Category deleted!</string>
+    <string name="tweeters_category_not_deleted">Category could not be deleted because there are still tweeters</string>
 </resources>

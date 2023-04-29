@@ -2,6 +2,7 @@ package hotboys69.dat153.whosetweetisthatappthing.data;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -22,4 +23,7 @@ public interface TweeterDao {
 
     @Insert
     void insertTweeter(Tweeter tweeter);
+
+    @Delete
+    void deleteCategory(Category category);
 }

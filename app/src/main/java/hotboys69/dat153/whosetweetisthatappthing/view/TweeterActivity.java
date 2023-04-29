@@ -34,7 +34,7 @@ public class TweeterActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(TweeterViewModel.class);
 
         expandableListView = findViewById(R.id.recycler_view);
-        TweeterListAdapter adapter = new TweeterListAdapter(Tweeters.getAsCategories());
+        TweeterListAdapter adapter = new TweeterListAdapter(Tweeters.getAsCategories(), viewModel);
         expandableListView.setAdapter(adapter);
 
 
@@ -46,7 +46,7 @@ public class TweeterActivity extends AppCompatActivity {
             List<TweeterCategory> tweeters = new ArrayList<>(Tweeters.getAsCategories());
             tweeters.addAll(value);
 
-            TweeterListAdapter a = new TweeterListAdapter(tweeters);
+            TweeterListAdapter a = new TweeterListAdapter(tweeters, viewModel);
             expandableListView.setAdapter(a);
         });
     }

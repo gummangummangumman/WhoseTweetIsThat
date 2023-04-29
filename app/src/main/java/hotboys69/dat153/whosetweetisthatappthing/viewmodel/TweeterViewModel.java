@@ -31,4 +31,12 @@ public class TweeterViewModel extends AndroidViewModel {
         tweeterRepository.insertCategory(category);
     }
 
+    public boolean deleteCategory(TweeterCategory category) {
+        if (!category.tweeters.isEmpty()) {
+            return false;
+        }
+        tweeterRepository.deleteCategory(category.category);
+        return true;
+    }
+
 }
