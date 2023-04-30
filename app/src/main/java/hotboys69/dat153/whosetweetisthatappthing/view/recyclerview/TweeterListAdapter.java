@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import java.util.List;
 
 import hotboys69.dat153.whosetweetisthatappthing.R;
+import hotboys69.dat153.whosetweetisthatappthing.data.entities.Tweeter;
 import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCategory;
 import hotboys69.dat153.whosetweetisthatappthing.viewmodel.TweeterViewModel;
 
@@ -21,7 +22,8 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
 
     TweeterViewModel viewModel;
 
-    public TweeterListAdapter(List<TweeterCategory> dataList, TweeterViewModel viewModel) {
+    public TweeterListAdapter(List<TweeterCategory> dataList, TweeterViewModel viewModel)
+    {
         this.categories = dataList;
         this.viewModel = viewModel;
     }
@@ -35,17 +37,17 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
     @Override
     public int getChildrenCount(int groupPosition)
     {
-        return categories.get(groupPosition).tweeters.size();
+        return getGroup(groupPosition).tweeters.size() + 1;
     }
 
     @Override
-    public Object getGroup(int groupPosition)
+    public TweeterCategory getGroup(int groupPosition)
     {
         return categories.get(groupPosition);
     }
 
     @Override
-    public Object getChild(int groupPosition, int childPosition)
+    public Tweeter getChild(int groupPosition, int childPosition)
     {
         return categories.get(groupPosition).tweeters.get(childPosition);
     }
@@ -74,23 +76,23 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
     {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item_group, parent, false);
-        String data = categories.get(groupPosition).toString();
+        String data = getGroup(groupPosition).toString();
         TextView textView = view.findViewById(R.id.title);
         textView.setText(data);
         if (isExpanded && groupPosition > 1) {
             Button deleteButton = view.findViewById(R.id.delete_button);
             deleteButton.setVisibility(View.VISIBLE);
             deleteButton.setOnClickListener(button -> {
-                        boolean deleted = viewModel.deleteCategory(categories.get(groupPosition));
-                        if (deleted) {
-                            Toast.makeText(view.getContext(),
+                boolean deleted = viewModel.deleteCategory(categories.get(groupPosition));
+                if (deleted) {
+                    Toast.makeText(view.getContext(),
                                     R.string.tweeters_category_deleted, Toast.LENGTH_SHORT)
-                                    .show();
-                        } else {
-                            Toast.makeText(view.getContext(),
+                            .show();
+                } else {
+                    Toast.makeText(view.getContext(),
                                     R.string.tweeters_category_not_deleted, Toast.LENGTH_SHORT)
-                                    .show();
-                        }
+                            .show();
+                }
             });
         }
         return view;
@@ -102,13 +104,45 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
     {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item_child, parent, false);
+
+        if (isLastChild) {
+            return groupPosition > 1
+                    ? getAddTweeterView(parent, categories.get(groupPosition))
+                    : new View(view.getContext());
+        }
         if (childPosition % 2 == 0) {
             view.setBackgroundColor(ContextCompat
                     .getColor(parent.getContext(), R.color.twitterOfficial));
         }
-        String data = categories.get(groupPosition).tweeters.get(childPosition).name;
+
+        Tweeter tweeter = getChild(groupPosition, childPosition);
         TextView textView = view.findViewById(R.id.title);
-        textView.setText(data);
+        String title = tweeter.name + " (" + tweeter.tweeterId + ")";
+        textView.setText(title);
+
+        Button deleteButton = view.findViewById(R.id.delete_button);
+        if (groupPosition < 2) {
+            deleteButton.setVisibility(View.GONE);
+        } else {
+            deleteButton.setOnClickListener(button -> {
+                viewModel.deleteTweeter(tweeter);
+                Toast.makeText(view.getContext(),
+                                R.string.tweeters_tweeter_deleted, Toast.LENGTH_SHORT)
+                        .show();
+            });
+        }
+
+        return view;
+    }
+
+    private View getAddTweeterView(ViewGroup parent, TweeterCategory category)
+    {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.list_item_child_add_tweeter, parent, false);
+
+        view.findViewById(R.id.add_button)
+                .setOnClickListener(button -> viewModel.insertTweeter(category));
+
         return view;
     }
 

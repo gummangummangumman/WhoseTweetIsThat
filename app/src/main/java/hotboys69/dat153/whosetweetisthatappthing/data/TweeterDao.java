@@ -26,4 +26,7 @@ public interface TweeterDao {
 
     @Delete
     void deleteCategory(Category category);
+
+    @Delete
+    void deleteTweeter(Tweeter tweeter);
 }

@@ -14,26 +14,36 @@ public class TweeterRepository {
     private final TweeterDao tweeterDao;
     private final LiveData<List<TweeterCategory>> categories;
 
-    public TweeterRepository(Application application) {
+    public TweeterRepository(Application application)
+    {
         DataBase db = DataBase.getDatabase(application);
         tweeterDao = db.tweeterDao();
         categories = tweeterDao.getAll();
     }
 
-    public LiveData<List<TweeterCategory>> getAllCategories() {
+    public LiveData<List<TweeterCategory>> getAllCategories()
+    {
         return categories;
     }
 
-    public void insertCategory(Category category) {
+    public void insertCategory(Category category)
+    {
         DataBase.databaseWriteExecutor.execute(() -> tweeterDao.insertCategory(category));
     }
 
-    public void insertTweeter(Tweeter tweeter) {
+    public void insertTweeter(Tweeter tweeter)
+    {
         DataBase.databaseWriteExecutor.execute(() -> tweeterDao.insertTweeter(tweeter));
     }
 
-    public void deleteCategory(Category category) {
+    public void deleteCategory(Category category)
+    {
         DataBase.databaseWriteExecutor.execute(() -> tweeterDao.deleteCategory(category));
+    }
+
+    public void deleteTweeter(Tweeter tweeter)
+    {
+        DataBase.databaseWriteExecutor.execute(() -> tweeterDao.deleteTweeter(tweeter));
     }
 
 }

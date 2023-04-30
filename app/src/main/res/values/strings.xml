@@ -21,4 +21,5 @@
 
     <string name="tweeters_category_deleted">Category deleted!</string>
     <string name="tweeters_category_not_deleted">Category could not be deleted because there are still tweeters</string>
+    <string name="tweeters_tweeter_deleted">Tweeter deleted!</string>
 </resources>

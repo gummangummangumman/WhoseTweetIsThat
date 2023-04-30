@@ -45,7 +45,7 @@ public class Tweeters {
                     TweeterCategory category = new TweeterCategory();
                     category.category = new Category();
                     category.tweeters = cat.stream()
-                            .map(tweeter -> new Tweeter(tweeter, 0))
+                            .map(tweeter -> new Tweeter(-1, tweeter))
                             .collect(Collectors.toList());
 
                     return category;

@@ -18,7 +18,7 @@ public class Tweeter {
     public final String name;
     public final int categoryId;
 
-    public Tweeter(@NonNull String name, @NonNull int categoryId)
+    public Tweeter(@NonNull Integer categoryId, @NonNull String name)
     {
         this.name = name;
         this.categoryId = categoryId;
