@@ -5,7 +5,9 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import hotboys69.dat153.whosetweetisthatappthing.data.TweeterRepository;
 import hotboys69.dat153.whosetweetisthatappthing.data.entities.Category;
@@ -43,12 +45,31 @@ public class TweeterViewModel extends AndroidViewModel {
 
     public boolean insertTweeter(TweeterCategory category, String name)
     {
-        if (name.length() < 2) {
+        if (name.contains(",")) {
+            List<String> validHandles = Arrays.stream(name.split(","))
+                    .map(handle -> handle.replaceAll("@", ""))
+                    .map(String::trim)
+                    .filter(this::handleIsValid)
+                    .collect(Collectors.toList());
+
+            if (validHandles.isEmpty()) {
+                return false;
+            }
+
+            validHandles.forEach(handle -> insertTweeter(category, handle));
+            return true;
+        }
+
+        if (!handleIsValid(name)) {
             return false;
         }
 
         tweeterRepository.insertTweeter(new Tweeter(category.category.categoryId, name));
         return true;
+    }
+
+    private boolean handleIsValid(String handle) {
+        return handle.length() >= 4 && handle.length() <= 15;
     }
 
     public void deleteTweeter(Tweeter tweeter)
