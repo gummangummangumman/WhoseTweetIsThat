@@ -1,10 +1,14 @@
 package hotboys69.dat153.whosetweetisthatappthing.view.recyclerview;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -117,8 +121,7 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
 
         Tweeter tweeter = getChild(groupPosition, childPosition);
         TextView textView = view.findViewById(R.id.title);
-        String title = tweeter.name + " (" + tweeter.tweeterId + ")";
-        textView.setText(title);
+        textView.setText(tweeter.name);
 
         Button deleteButton = view.findViewById(R.id.delete_button);
         if (groupPosition < 2) {
@@ -140,10 +143,37 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item_child_add_tweeter, parent, false);
 
+        AlertDialog addTweeterDialog = addTweeterDialog(parent.getContext(), category);
+
         view.findViewById(R.id.add_button)
-                .setOnClickListener(button -> viewModel.insertTweeter(category));
+                .setOnClickListener(button -> addTweeterDialog.show());
 
         return view;
+    }
+
+    private AlertDialog addTweeterDialog(Context context, TweeterCategory category)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(R.string.tweeters_add_dialog_title);
+
+        final EditText input = new EditText(context);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setHint(R.string.tweeters_add_dialog_hint);
+        builder.setView(input);
+        builder.setPositiveButton(R.string.ok, (dialog, which) -> {
+            String text = input.getText()
+                    .toString()
+                    .replaceAll("@", "")
+                    .trim();
+            boolean deleted = viewModel.insertTweeter(category, text);
+            if (!deleted) {
+                Toast.makeText(context,
+                                R.string.tweeters_tweeter_not_added, Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+
+        return builder.create();
     }
 
     @Override

@@ -41,9 +41,14 @@ public class TweeterViewModel extends AndroidViewModel {
         return true;
     }
 
-    public void insertTweeter(TweeterCategory category)
+    public boolean insertTweeter(TweeterCategory category, String name)
     {
-        tweeterRepository.insertTweeter(new Tweeter(category.category.categoryId, ""));
+        if (name.length() < 2) {
+            return false;
+        }
+
+        tweeterRepository.insertTweeter(new Tweeter(category.category.categoryId, name));
+        return true;
     }
 
     public void deleteTweeter(Tweeter tweeter)
