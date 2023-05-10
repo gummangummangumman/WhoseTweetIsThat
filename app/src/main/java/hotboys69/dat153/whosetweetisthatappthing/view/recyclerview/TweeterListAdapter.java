@@ -155,6 +155,7 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(R.string.tweeters_add_dialog_title);
+        builder.setMessage(R.string.tweeters_add_dialog_message);
 
         final EditText input = new EditText(context);
         input.setInputType(InputType.TYPE_CLASS_TEXT);

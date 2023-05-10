@@ -68,7 +68,8 @@ public class TweeterViewModel extends AndroidViewModel {
         return true;
     }
 
-    private boolean handleIsValid(String handle) {
+    private boolean handleIsValid(String handle)
+    {
         return handle.length() >= 4 && handle.length() <= 15;
     }
 
