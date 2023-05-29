@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
     @Override
     public int getChildrenCount(int groupPosition)
     {
-        return getGroup(groupPosition).tweeters.size() + 1;
+        return getGroup(groupPosition).tweeters.size() + 2;
     }
 
     @Override
@@ -109,6 +110,9 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item_child, parent, false);
 
+        if (childPosition == 0) {
+            return getActiveSwitchView(parent, categories.get(groupPosition));
+        }
         if (isLastChild) {
             return groupPosition > 1
                     ? getAddTweeterView(parent, categories.get(groupPosition))
@@ -119,7 +123,7 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
                     .getColor(parent.getContext(), R.color.twitterOfficial));
         }
 
-        Tweeter tweeter = getChild(groupPosition, childPosition);
+        Tweeter tweeter = getChild(groupPosition, childPosition - 1);
         TextView textView = view.findViewById(R.id.title);
         textView.setText(tweeter.name);
 
@@ -134,6 +138,21 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
                         .show();
             });
         }
+
+        return view;
+    }
+
+    private View getActiveSwitchView(ViewGroup parent, TweeterCategory category)
+    {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.list_item_child_active_switch, parent, false);
+
+        SwitchCompat activeSwitch = view.findViewById(R.id.switch_active);
+        activeSwitch
+                .setOnCheckedChangeListener((compoundButton, b) -> {
+                    //TODO
+                    System.out.println("setting " + category.category.categoryId + " to active: " + b);
+                });
 
         return view;
     }

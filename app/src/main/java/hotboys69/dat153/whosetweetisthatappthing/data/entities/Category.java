@@ -9,7 +9,10 @@ public class Category {
     @PrimaryKey(autoGenerate = true)
     public int categoryId;
 
+    public boolean active;
+
     public Category()
     {
+        this.active = true;
     }
 }

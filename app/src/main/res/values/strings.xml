@@ -27,4 +27,5 @@
     <string name="tweeters_add_dialog_title">Twitter handle</string>
     <string name="tweeters_add_dialog_message">Several tweeters can be added at once separated with commas</string>
     <string name="tweeters_add_dialog_hint">\@Your_favourite_tweeter</string>
+    <string name="tweeters_active">Active</string>
 </resources>
