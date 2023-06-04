@@ -19,6 +19,11 @@ public class TweeterCategory {
     )
     public List<Tweeter> tweeters;
 
+    public boolean getEffectivelyActive()
+    {
+        return category.active && tweeters.size() >= 4;
+    }
+
 
     @NonNull
     @Override

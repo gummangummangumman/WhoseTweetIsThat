@@ -82,6 +82,11 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
     {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item_group, parent, false);
+        if (!getGroup(groupPosition).getEffectivelyActive()) {
+            view.setBackgroundColor(ContextCompat
+                    .getColor(parent.getContext(), R.color.twitterOfficialLightGrey));
+        }
+
         String data = getGroup(groupPosition).toString();
         TextView textView = view.findViewById(R.id.title);
         textView.setText(data);
