@@ -84,4 +84,11 @@ public class Tweeters {
                 })
                 .collect(Collectors.toList());
     }
+
+    public static List<TweeterCategory> getActiveCategories()
+    {
+        return getAsCategories().stream()
+                .filter(TweeterCategory::getEffectivelyActive)
+                .collect(Collectors.toList());
+    }
 }

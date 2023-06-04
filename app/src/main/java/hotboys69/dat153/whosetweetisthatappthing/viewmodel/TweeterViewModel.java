@@ -25,6 +25,11 @@ public class TweeterViewModel extends AndroidViewModel {
         tweeterRepository = new TweeterRepository(application);
     }
 
+    public LiveData<List<TweeterCategory>> getActiveCategoriesLiveData()
+    {
+        return tweeterRepository.getActiveCategories();
+    }
+
     public LiveData<List<TweeterCategory>> getCategoriesLiveData()
     {
         return tweeterRepository.getAllCategories();
@@ -91,6 +96,20 @@ public class TweeterViewModel extends AndroidViewModel {
             return;
         }
         tweeterRepository.deleteTweeter(tweeter);
+    }
+
+    public List<TweeterCategory> getAllActiveCategories()
+    {
+        List<TweeterCategory> activeCategories = tweeterRepository
+                .getActiveCategories()
+                .getValue();
+
+        if (activeCategories == null) {
+            return Tweeters.getActiveCategories();
+        }
+
+        activeCategories.addAll(Tweeters.getActiveCategories());
+        return activeCategories;
     }
 
 }

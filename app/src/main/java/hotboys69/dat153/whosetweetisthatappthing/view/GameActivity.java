@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.twitter.sdk.android.core.Twitter;
 
@@ -23,7 +25,9 @@ import hotboys69.dat153.whosetweetisthatappthing.R;
 import hotboys69.dat153.whosetweetisthatappthing.connect.ImageDownloader;
 import hotboys69.dat153.whosetweetisthatappthing.connect.TwitterConnect;
 import hotboys69.dat153.whosetweetisthatappthing.data.Settings;
+import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCategory;
 import hotboys69.dat153.whosetweetisthatappthing.util.TweeterRandomiser;
+import hotboys69.dat153.whosetweetisthatappthing.viewmodel.TweeterViewModel;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -51,6 +55,9 @@ public class GameActivity extends AppCompatActivity {
     //if a tweeter has failed to load
     boolean failed = false;
 
+    TweeterViewModel viewModel;
+    List<TweeterCategory> categories;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -58,6 +65,11 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         Twitter.initialize(this);
+
+        viewModel = new ViewModelProvider(this).get(TweeterViewModel.class);
+        categories = viewModel.getAllActiveCategories();
+        viewModel.getActiveCategoriesLiveData().observe(this, value ->
+                categories = viewModel.getAllActiveCategories());
 
 
         button1 = findViewById(R.id.button1);
@@ -82,7 +94,9 @@ public class GameActivity extends AppCompatActivity {
             failureSound = MediaPlayer.create(this, R.raw.incorrect);
         }
 
-        showNewTweet();
+
+        // Showing a tweet after one second
+        new Handler().postDelayed(this::showNewTweet, 1000);
     }
 
 
@@ -96,7 +110,7 @@ public class GameActivity extends AppCompatActivity {
         resetUI();
 
         //generate 4 random tweeters
-        List<String> tweetersToGuessFrom = TweeterRandomiser.getRandomTweeters();
+        List<String> tweetersToGuessFrom = TweeterRandomiser.getRandomTweeters(categories);
 
         //choose one as the correct one
         correctUserName = TweeterRandomiser.getRandomTweeter(tweetersToGuessFrom);

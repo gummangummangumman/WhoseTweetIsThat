@@ -19,6 +19,9 @@ public interface TweeterDao {
     @Query("SELECT * FROM category")
     LiveData<List<TweeterCategory>> getAll();
 
+    @Query("SELECT * FROM category c WHERE active is 1 AND (SELECT COUNT(*) FROM tweeter t where c. categoryId=t.categoryId) >= 4")
+    LiveData<List<TweeterCategory>> getActiveCategories();
+
     @Insert
     void insertCategory(Category category);
 

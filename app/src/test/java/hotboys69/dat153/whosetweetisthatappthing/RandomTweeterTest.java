@@ -41,13 +41,13 @@ public class RandomTweeterTest {
                 "DalaiLama",
                 "neiltyson",
                 "Pontifex"));
-        tweeters = TweeterRandomiser.getRandomTweeters();
+        tweeters = TweeterRandomiser.getRandomTweeters(null);
     }
 
     @Test
     public void theSizeIsFour()
     {
-        tweeters = TweeterRandomiser.getRandomTweeters();
+        tweeters = TweeterRandomiser.getRandomTweeters(null);
         assertEquals(tweeters.size(), 4);
     }
 

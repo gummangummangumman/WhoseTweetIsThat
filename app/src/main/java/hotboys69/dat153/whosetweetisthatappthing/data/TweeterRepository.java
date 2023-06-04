@@ -13,12 +13,19 @@ import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCatego
 public class TweeterRepository {
     private final TweeterDao tweeterDao;
     private final LiveData<List<TweeterCategory>> categories;
+    private final LiveData<List<TweeterCategory>> activeCategories;
 
     public TweeterRepository(Application application)
     {
         DataBase db = DataBase.getDatabase(application);
         tweeterDao = db.tweeterDao();
         categories = tweeterDao.getAll();
+        activeCategories = tweeterDao.getActiveCategories();
+    }
+
+    public LiveData<List<TweeterCategory>> getActiveCategories()
+    {
+        return activeCategories;
     }
 
     public LiveData<List<TweeterCategory>> getAllCategories()
