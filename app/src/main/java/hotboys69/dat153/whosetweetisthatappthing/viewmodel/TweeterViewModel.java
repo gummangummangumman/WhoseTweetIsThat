@@ -43,6 +43,17 @@ public class TweeterViewModel extends AndroidViewModel {
         return true;
     }
 
+    public void setCategoryActive(Category category, boolean active)
+    {
+        if (category.categoryId < 0) {
+            //TODO
+            return;
+        }
+
+        category.active = active;
+        tweeterRepository.updateCategory(category);
+    }
+
     public boolean insertTweeter(TweeterCategory category, String name)
     {
         if (name.contains(",")) {

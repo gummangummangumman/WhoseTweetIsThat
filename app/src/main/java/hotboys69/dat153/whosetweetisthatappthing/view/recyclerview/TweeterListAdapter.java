@@ -148,11 +148,10 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
                 .inflate(R.layout.list_item_child_active_switch, parent, false);
 
         SwitchCompat activeSwitch = view.findViewById(R.id.switch_active);
+        activeSwitch.setChecked(category.category.active);
         activeSwitch
-                .setOnCheckedChangeListener((compoundButton, b) -> {
-                    //TODO
-                    System.out.println("setting " + category.category.categoryId + " to active: " + b);
-                });
+                .setOnCheckedChangeListener((compoundButton, b) ->
+                        viewModel.setCategoryActive(category.category, b));
 
         return view;
     }

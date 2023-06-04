@@ -46,4 +46,9 @@ public class TweeterRepository {
         DataBase.databaseWriteExecutor.execute(() -> tweeterDao.deleteTweeter(tweeter));
     }
 
+    public void updateCategory(Category category)
+    {
+        DataBase.databaseWriteExecutor.execute(() -> tweeterDao.updateCategory(category));
+    }
+
 }
