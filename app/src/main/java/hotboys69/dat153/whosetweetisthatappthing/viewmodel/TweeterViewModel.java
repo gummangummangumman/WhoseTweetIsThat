@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import hotboys69.dat153.whosetweetisthatappthing.data.TweeterRepository;
+import hotboys69.dat153.whosetweetisthatappthing.data.Tweeters;
 import hotboys69.dat153.whosetweetisthatappthing.data.entities.Category;
 import hotboys69.dat153.whosetweetisthatappthing.data.entities.Tweeter;
 import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCategory;
@@ -46,7 +47,7 @@ public class TweeterViewModel extends AndroidViewModel {
     public void setCategoryActive(Category category, boolean active)
     {
         if (category.categoryId < 0) {
-            //TODO
+            Tweeters.setActive(category.categoryId, active);
             return;
         }
 

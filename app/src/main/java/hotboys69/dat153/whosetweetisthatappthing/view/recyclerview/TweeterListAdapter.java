@@ -1,5 +1,6 @@
 package hotboys69.dat153.whosetweetisthatappthing.view.recyclerview;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.text.InputType;
@@ -150,8 +151,14 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
         SwitchCompat activeSwitch = view.findViewById(R.id.switch_active);
         activeSwitch.setChecked(category.category.active);
         activeSwitch
-                .setOnCheckedChangeListener((compoundButton, b) ->
-                        viewModel.setCategoryActive(category.category, b));
+                .setOnCheckedChangeListener((compoundButton, b) -> {
+                    viewModel.setCategoryActive(category.category, b);
+                    if (category.category.categoryId < 0) {
+                        Activity activity = (Activity) view.getContext();
+                        activity.recreate();
+                    }
+                });
+
 
         return view;
     }
