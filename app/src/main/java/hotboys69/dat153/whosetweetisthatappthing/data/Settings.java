@@ -20,6 +20,9 @@ public class Settings {
         soundEnabled = pref.getBoolean("soundenabled", true);
         highScore = pref.getInt("highscore", 0);
 
+        Tweeters.musicians_active = pref.getBoolean("musicians_active", true);
+        Tweeters.non_musicians_active = pref.getBoolean("non_musicians_active", true);
+
         loaded = true;
     }
 
@@ -28,6 +31,8 @@ public class Settings {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor prefEditor = pref.edit();
 
+        prefEditor.putBoolean("musicians_active", Tweeters.musicians_active);
+        prefEditor.putBoolean("non_musicians_active", Tweeters.non_musicians_active);
         prefEditor.putInt("highscore", highScore);
         prefEditor.putBoolean("soundenabled", soundEnabled);
         prefEditor.apply();

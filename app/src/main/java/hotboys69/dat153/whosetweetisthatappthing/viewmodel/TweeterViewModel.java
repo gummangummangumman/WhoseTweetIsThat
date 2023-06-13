@@ -52,7 +52,7 @@ public class TweeterViewModel extends AndroidViewModel {
     public void setCategoryActive(Category category, boolean active)
     {
         if (category.categoryId < 0) {
-            Tweeters.setActive(category.categoryId, active);
+            Tweeters.setActive(category.categoryId, active, getApplication().getBaseContext());
             return;
         }
 

@@ -1,5 +1,7 @@
 package hotboys69.dat153.whosetweetisthatappthing.data;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -42,15 +44,17 @@ public class Tweeters {
         tweeters.set(1, musicians);
     }
 
-    public static void setActive(int id, boolean active)
+    public static void setActive(int id, boolean active, Context context)
     {
         switch (id) {
             case -1:
                 non_musicians_active = active;
+                Settings.saveSettings(context);
                 break;
             case -2:
             default:
                 musicians_active = active;
+                Settings.saveSettings(context);
                 break;
         }
     }
