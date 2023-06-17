@@ -17,16 +17,19 @@
 
     <Button
         android:id="@+id/delete_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="-"
         android:focusable="false"
+        android:background="@drawable/delete"
         android:focusableInTouchMode="false"
-        android:visibility="gone"
-        tools:ignore="HardcodedText" />
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
