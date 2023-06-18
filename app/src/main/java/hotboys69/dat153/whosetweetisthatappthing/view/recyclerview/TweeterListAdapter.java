@@ -3,6 +3,7 @@ package hotboys69.dat153.whosetweetisthatappthing.view.recyclerview;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.os.Build;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -103,6 +104,10 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
         if (isExpanded && groupPosition > 1) {
             Button deleteButton = view.findViewById(R.id.delete_button);
             deleteButton.setVisibility(View.VISIBLE);
+            deleteButton.setEnabled(categories.get(groupPosition).tweeters.isEmpty());
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                deleteButton.setAllowClickWhenDisabled(true);
+            }
             deleteButton.setOnClickListener(button -> {
                 boolean deleted = viewModel.deleteCategory(categories.get(groupPosition));
                 if (deleted) {
