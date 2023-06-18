@@ -23,11 +23,11 @@
     <string name="tweeters_category_deleted">Kategorie gelöscht!</string>
     <string name="tweeters_tweeter_not_added">Das ist kein gültiger Twittername</string>
     <string name="tweeters_tweeter_deleted">Tweeter gelöscht!</string>
-    <string name="tweeters_add_tweeter">Füge zu</string>
+    <string name="tweeters_add_tweeter">Füge hinzu</string>
     <string name="tweeters_add_dialog_title">Twittername</string>
     <string name="tweeters_add_dialog_message">Mehrere Tweeters können gleichzeitig hinzugefügt werden separiert mit Kommas</string>
     <string name="tweeters_add_dialog_hint">\@Dein_Lieblingstweeter</string>
     <string name="tweeters_active">Aktiv</string>
     <string name="tweeters_category_delete_confirmation_title">Kategorie löschen</string>
-    <string name="tweeters_category_delete_confirmation_message">Die Kategorie ist nicht leer, sind Sie sicher, dass Sie es löschen wollen?</string>
+    <string name="tweeters_category_delete_confirmation_message">Die Kategorie ist nicht leer, bist du sicher, dass du sie löschen willst?</string>
 </resources>
