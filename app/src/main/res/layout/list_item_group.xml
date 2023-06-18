@@ -20,14 +20,14 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="4"
 
         android:paddingStart="32dp"
         android:paddingTop="8dp"
         android:paddingEnd="32dp"
         android:paddingBottom="8dp"
 
-        android:maxLines="4"
-        android:ellipsize="end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

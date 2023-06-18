@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:focusable="false"
-        android:background="@drawable/delete"
+        android:background="@drawable/delete_icon"
         android:focusableInTouchMode="false" />
 
     <TextView

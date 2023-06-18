@@ -3,7 +3,6 @@ package hotboys69.dat153.whosetweetisthatappthing.view.recyclerview;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.os.Build;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -104,24 +103,35 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
         if (isExpanded && groupPosition > 1) {
             Button deleteButton = view.findViewById(R.id.delete_button);
             deleteButton.setVisibility(View.VISIBLE);
-            deleteButton.setEnabled(categories.get(groupPosition).tweeters.isEmpty());
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                deleteButton.setAllowClickWhenDisabled(true);
-            }
             deleteButton.setOnClickListener(button -> {
-                boolean deleted = viewModel.deleteCategory(categories.get(groupPosition));
-                if (deleted) {
+                if (categories.get(groupPosition).tweeters.isEmpty()) {
+                    viewModel.deleteCategory(categories.get(groupPosition));
                     Toast.makeText(view.getContext(),
                                     R.string.tweeters_category_deleted, Toast.LENGTH_SHORT)
                             .show();
-                } else {
-                    Toast.makeText(view.getContext(),
-                                    R.string.tweeters_category_not_deleted, Toast.LENGTH_SHORT)
-                            .show();
+                    return;
                 }
+                deleteCategoryDialog(parent.getContext(), categories.get(groupPosition))
+                        .show();
             });
         }
         return view;
+    }
+
+    private AlertDialog deleteCategoryDialog(Context context, TweeterCategory category)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(R.string.tweeters_category_delete_confirmation_title);
+        builder.setMessage(R.string.tweeters_category_delete_confirmation_message);
+        builder.setPositiveButton(R.string.yes, (dialog, which) -> {
+            viewModel.deleteCategory(category);
+            Toast.makeText(context,
+                            R.string.tweeters_category_deleted, Toast.LENGTH_SHORT)
+                    .show();
+            dialog.dismiss();
+        });
+        builder.setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss());
+        return builder.create();
     }
 
     private View getAddListView(ViewGroup parent)

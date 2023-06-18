@@ -34,6 +34,9 @@ public interface TweeterDao {
     @Delete
     void deleteTweeter(Tweeter tweeter);
 
+    @Query("DELETE FROM tweeter WHERE categoryId = :categoryId")
+    void deleteAllTweetersWithCategoryId(int categoryId);
+
     @Update
     void updateCategory(Category category);
 }
