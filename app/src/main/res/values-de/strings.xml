@@ -16,6 +16,18 @@
     <string name="reset_confirmation">Bist du sicher dass du deinen Rekord zurücksetzen willst? Er kann nicht wiederhergestellt werden!</string>
     <string name="cancel">Abbrechen</string>
     <string name="ok">OK</string>
+    <string name="yes">ja</string>
+    <string name="no">nein</string>
     <string name="load_tweet_error">Ups! Etwas ist schiefgegangen während ein Tweeter geladen wurde. Es könnten zu viele Anfragen an Twitter gesendet worden sein und möglicherweise musst du warten, bevor du weitere Tweets abrufen kannst. Es kann bis 15 Minuten dauern.</string>
     <string name="next">Nächste</string>
+    <string name="tweeters_category_deleted">Kategorie gelöscht!</string>
+    <string name="tweeters_tweeter_not_added">Das ist kein gültiger Twitter-name</string>
+    <string name="tweeters_tweeter_deleted">Tweeter gelöscht!</string>
+    <string name="tweeters_add_tweeter">Füge zu</string>
+    <string name="tweeters_add_dialog_title">Twittername</string>
+    <string name="tweeters_add_dialog_message">Mehrere Tweeters können gleichzeitig hinzugefügt werden separiert mit Kommas</string>
+    <string name="tweeters_add_dialog_hint">\@Dein_Lieblingstweeter</string>
+    <string name="tweeters_active">Aktiv</string>
+    <string name="tweeters_category_delete_confirmation_title">Kategorie löschen</string>
+    <string name="tweeters_category_delete_confirmation_message">Die Kategorie ist nicht leer, sind Sie sicher, dass Sie es löschen wollen?</string>
 </resources>

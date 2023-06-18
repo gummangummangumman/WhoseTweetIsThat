@@ -2,7 +2,7 @@
     <string name="back_to_main_menu">Hovedmeny</string>
     <string name="play">Spill</string>
     <string name="play_again">Spill igjen</string>
-    <string name="tweeters">Tvitere</string>
+    <string name="tweeters">Tvitrere</string>
     <string name="settings">Innstillinger</string>
     <string name="sound">Lydeffekter</string>
     <string name="game_over">Game Over</string>
@@ -15,14 +15,18 @@
     <string name="reset_confirmation">Er du sikker på at du vil nullstille rekorden din? Dette kan ikke angres!</string>
     <string name="cancel">Avbryt</string>
     <string name="ok">OK</string>
-    <string name="load_tweet_error">Oops! Noe gikk galt med lasting av en tweeter. Det kan ha blitt gjort for mange kall til Twitter og kanskje du må vente før du kan hente flere tweets. Dette kan ta opp til 15 minutter.</string>
+    <string name="yes">ja</string>
+    <string name="no">nei</string>
+    <string name="load_tweet_error">Oops! Noe gikk galt med lasting av en tvitrer. Det kan ha blitt gjort for mange kall til Twitter og kanskje du må vente før du kan hente flere tvitringer. Dette kan ta opp til 15 minutter.</string>
     <string name="next">Neste</string>
     <string name="tweeters_category_deleted">Kategori slettet!</string>
-    <string name="tweeters_category_not_deleted">Kategori kan ikke bli slettet fordi det fortsatt er tweetere der</string>
     <string name="tweeters_tweeter_not_added">Det er ikke et gyldig twitternavn</string>
     <string name="tweeters_tweeter_deleted">Tweeter slettet!</string>
+    <string name="tweeters_add_tweeter">Legg til</string>
     <string name="tweeters_add_dialog_title">Twitternavn</string>
     <string name="tweeters_add_dialog_message">Mange tvitrere kan bli lagt til samtidig separert med kommaer</string>
     <string name="tweeters_add_dialog_hint">\@Din_favoritt</string>
     <string name="tweeters_active">Aktiv</string>
+    <string name="tweeters_category_delete_confirmation_title">Slett kategori</string>
+    <string name="tweeters_category_delete_confirmation_message">Kategorien er ikke tom, er du sikker på at du vil slette den?</string>
 </resources>

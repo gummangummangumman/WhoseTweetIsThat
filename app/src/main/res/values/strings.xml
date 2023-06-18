@@ -25,7 +25,6 @@
     <string name="tweeters_category_delete_confirmation_title">Delete category</string>
     <string name="tweeters_category_delete_confirmation_message">The category is not empty, are you sure you want to delete it?</string>
     <string name="tweeters_category_deleted">Category deleted!</string>
-    <string name="tweeters_category_not_deleted">Category could not be deleted because there are still tweeters</string>
     <string name="tweeters_tweeter_not_added">That is not a valid Twitter handle</string>
     <string name="tweeters_tweeter_deleted">Tweeter deleted!</string>
     <string name="tweeters_add_tweeter">Add</string>
