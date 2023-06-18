@@ -33,7 +33,7 @@ public class RandomTweetPicker {
             keepLooking = !TweetFilter.isValid(randomTweet);
 
             if (keepLooking) {
-                Log.w("FILTERED_TWEET", randomTweet);
+                Log.w("FILTERED_TWEET", tweets.get(number).user.name + ": " + randomTweet);
             }
 
             //if it has looped all the way around, just give up
