@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import androidx.core.content.ContextCompat;
 import java.util.List;
 
 import hotboys69.dat153.whosetweetisthatappthing.R;
+import hotboys69.dat153.whosetweetisthatappthing.data.entities.Category;
 import hotboys69.dat153.whosetweetisthatappthing.data.entities.Tweeter;
 import hotboys69.dat153.whosetweetisthatappthing.data.not_entities.TweeterCategory;
 import hotboys69.dat153.whosetweetisthatappthing.viewmodel.TweeterViewModel;
@@ -37,7 +39,7 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
     @Override
     public int getGroupCount()
     {
-        return categories.size();
+        return categories.size() + 1;
     }
 
     @Override
@@ -80,12 +82,20 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView,
                              ViewGroup parent)
     {
+        if (groupPosition == getGroupCount() - 1) {
+            return getAddListView(parent);
+        }
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item_group, parent, false);
         if (!getGroup(groupPosition).getEffectivelyActive()) {
             view.setBackgroundColor(ContextCompat
                     .getColor(parent.getContext(), R.color.twitterOfficialLightGrey));
         }
+
+        ImageView arrow = view.findViewById(R.id.groupIndicator);
+        arrow.setImageResource(isExpanded
+                ? R.drawable.arrow_up
+                : R.drawable.arrow_down);
 
         String data = getGroup(groupPosition).toString();
         TextView textView = view.findViewById(R.id.title);
@@ -106,6 +116,17 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
                 }
             });
         }
+        return view;
+    }
+
+    private View getAddListView(ViewGroup parent)
+    {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.list_item_group_add_list, parent, false);
+
+        view.findViewById(R.id.add_list_button)
+                .setOnClickListener(button -> viewModel.insert(new Category()));
+
         return view;
     }
 
