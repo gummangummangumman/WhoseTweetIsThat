@@ -19,6 +19,7 @@
     <string name="no">nei</string>
     <string name="load_tweet_error">Oops! Noe gikk galt med lasting av en tvitrer. Det kan ha blitt gjort for mange kall til Twitter og kanskje du må vente før du kan hente flere tvitringer. Dette kan ta opp til 15 minutter.</string>
     <string name="next">Neste</string>
+
     <string name="tweeters_category_deleted">Kategori slettet!</string>
     <string name="tweeters_tweeter_not_added">Det er ikke et gyldig twitternavn</string>
     <string name="tweeters_tweeter_deleted">Tweeter slettet!</string>

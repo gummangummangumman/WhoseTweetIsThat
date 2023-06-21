@@ -3,7 +3,7 @@
     <string name="back_to_main_menu">Главное меню</string>
     <string name="play">Играть</string>
     <string name="play_again">Играть снова</string>
-    <string name="tweeters">._.</string>
+    <string name="tweeters">Твиттерские</string>
     <string name="settings">Настройки</string>
     <string name="sound">Звуковые эффекты</string>
     <string name="game_over">Игра окончена</string>
@@ -20,14 +20,15 @@
     <string name="no">нет</string>
     <string name="load_tweet_error">"Упс! Что-то пошло не так при загрузке твитов. Возможно, превышено количество запросов к Twitter и Вам нужно подождать, прежде чем попробовать снова. Это может занять до 15 минут."</string>
     <string name="next">Следующий</string>
-    <string name="tweeters_category_deleted">._.</string>
-    <string name="tweeters_tweeter_not_added">._.</string>
-    <string name="tweeters_tweeter_deleted">._.</string>
-    <string name="tweeters_add_tweeter">._.</string>
-    <string name="tweeters_add_dialog_title">._.</string>
-    <string name="tweeters_add_dialog_message">._.</string>
-    <string name="tweeters_add_dialog_hint">._.</string>
-    <string name="tweeters_active">._.</string>
-    <string name="tweeters_category_delete_confirmation_title">._.</string>
-    <string name="tweeters_category_delete_confirmation_message">._.</string>
+
+    <string name="tweeters_category_deleted">Категория удалена!</string>
+    <string name="tweeters_tweeter_not_added">Это имя недействительно</string>
+    <string name="tweeters_tweeter_deleted">Твиттерский удален!</string>
+    <string name="tweeters_add_tweeter">Добавить</string>
+    <string name="tweeters_add_dialog_title">Имя</string>
+    <string name="tweeters_add_dialog_message">Можно добавить сразу несколько твиттерских через запятую</string>
+    <string name="tweeters_add_dialog_hint">\@твой_любимый_твиттерский</string>
+    <string name="tweeters_active">Категория активна</string>
+    <string name="tweeters_category_delete_confirmation_title">Удалить категорию</string>
+    <string name="tweeters_category_delete_confirmation_message">Категория не пуста. Вы уверены, что хотите её удалить?</string>
 </resources>
