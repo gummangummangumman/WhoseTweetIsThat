@@ -37,10 +37,9 @@ public class TwitterConnect {
             @Override
             public void success(Result<List<Tweet>> result)
             {
-
                 if (result.data.size() == 0) {
                     Log.e("NO_TWEETS", "No tweets from user @" + username);
-                    callback.get().setFailed();
+                    callback.get().setFailed(username);
                     return;
                 } else if (result.data.get(0).user.screenName
                         .equals(callback.get().correctUserName)) {
@@ -49,7 +48,7 @@ public class TwitterConnect {
                         callback.get().setTweet(randomTweet);
                     } catch (Resources.NotFoundException e) {
                         e.printStackTrace();
-                        callback.get().setFailed();
+                        callback.get().setFailed(username);
                         return;
                     }
                 }
@@ -64,7 +63,7 @@ public class TwitterConnect {
             {
                 Log.e("TWITTER_CONNECT_ERROR", exception.getMessage());
                 exception.printStackTrace();
-                callback.get().setFailed();
+                callback.get().setFailed(null);
             }
         });
     }

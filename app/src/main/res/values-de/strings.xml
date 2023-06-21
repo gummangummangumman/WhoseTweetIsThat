@@ -18,8 +18,10 @@
     <string name="ok">OK</string>
     <string name="yes">ja</string>
     <string name="no">nein</string>
-    <string name="load_tweet_error">Ups! Etwas ist schiefgegangen während ein Tweeter geladen wurde. Es könnten zu viele Anfragen an Twitter gesendet worden sein und möglicherweise musst du warten, bevor du weitere Tweets abrufen kannst. Es kann bis 15 Minuten dauern.</string>
     <string name="next">Nächste</string>
+
+    <string name="load_tweet_error">Ups! Etwas ist schiefgegangen während ein Tweeter geladen wurde. Es könnten zu viele Anfragen an Twitter gesendet worden sein und möglicherweise musst du warten, bevor du weitere Tweets abrufen kannst. Es kann bis 15 Minuten dauern.</string>
+    <string name="tweet_error">Ups! Etwas ist schiefgegangen während die Tweets von \@%1$s geladen wurden. Bitte genau nachprüfen dass es richtig geschrieben ist, und dass der Profil öffentlich ist.</string>
 
     <string name="tweeters_category_deleted">Kategorie gelöscht!</string>
     <string name="tweeters_tweeter_not_added">Das ist kein gültiger Twittername</string>

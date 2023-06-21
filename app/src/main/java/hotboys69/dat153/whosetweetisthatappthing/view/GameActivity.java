@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
@@ -124,10 +125,16 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * should be called when the main tweet failed
+     * @param offendingUsername The username of the user who could not load a tweet,
+     *                          if there is one. Null if there was another problem.
      */
-    public void setFailed()
+    public void setFailed(@Nullable String offendingUsername)
     {
-        setTweet(getString(R.string.load_tweet_error));
+        if (offendingUsername==null) {
+            setTweet(getString(R.string.load_tweet_error));
+        } else {
+            setTweet(getString(R.string.tweet_error, offendingUsername));
+        }
         animateTweetView();
         failed = true;
         disableAllButtons();

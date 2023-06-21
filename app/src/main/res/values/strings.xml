@@ -20,7 +20,9 @@
     <string name="ok">OK</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
+
     <string name="load_tweet_error">Oops! Something went wrong while loading a tweeter. There might have been made too many calls to Twitter and you might have to wait until you can fetch any more.\nThis can take up to 15 minutes.</string>
+    <string name="tweet_error">Oops! Something went wrong while loading the tweets of \@%1$s. Please double check the spelling, and make sure it is a public profile.</string>
 
     <string name="tweeters_category_delete_confirmation_title">Delete category</string>
     <string name="tweeters_category_delete_confirmation_message">The category is not empty, are you sure you want to delete it?</string>

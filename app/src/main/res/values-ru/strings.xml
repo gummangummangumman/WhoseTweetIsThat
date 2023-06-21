@@ -18,8 +18,10 @@
     <string name="ok">ОК</string>
     <string name="yes">да</string>
     <string name="no">нет</string>
-    <string name="load_tweet_error">"Упс! Что-то пошло не так при загрузке твитов. Возможно, превышено количество запросов к Twitter и Вам нужно подождать, прежде чем попробовать снова. Это может занять до 15 минут."</string>
     <string name="next">Следующий</string>
+
+    <string name="load_tweet_error">"Упс! Что-то пошло не так при загрузке твитов. Возможно, превышено количество запросов к Twitter и Вам нужно подождать, прежде чем попробовать снова. Это может занять до 15 минут."</string>
+    <string name="tweet_error">Упс! Что-то пошло не так при загрузке твитов из \@%1$s. Пожалуйста, дважды проверьте правильность написания и убедитесь, что это общедоступный профиль.</string>
 
     <string name="tweeters_category_deleted">Категория удалена!</string>
     <string name="tweeters_tweeter_not_added">Это имя недействительно</string>
