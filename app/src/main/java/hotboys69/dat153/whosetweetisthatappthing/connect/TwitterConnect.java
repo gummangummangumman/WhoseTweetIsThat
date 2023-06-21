@@ -41,7 +41,14 @@ public class TwitterConnect {
                     Log.e("NO_TWEETS", "No tweets from user @" + username);
                     callback.get().setFailed(username);
                     return;
-                } else if (result.data.get(0).user.screenName
+                }
+
+                callback.get().setUserInformation(
+                        result.data.get(0).user.name,
+                        result.data.get(0).user.profileImageUrl,
+                        result.data.get(0).user.screenName);
+
+                if (result.data.get(0).user.screenName
                         .equals(callback.get().correctUserName)) {
                     try {
                         String randomTweet = RandomTweetPicker.getRandomTweet(result.data);
@@ -49,13 +56,8 @@ public class TwitterConnect {
                     } catch (Resources.NotFoundException e) {
                         e.printStackTrace();
                         callback.get().setFailed(username);
-                        return;
                     }
                 }
-                callback.get().setUserInformation(
-                        result.data.get(0).user.name,
-                        result.data.get(0).user.profileImageUrl,
-                        result.data.get(0).user.screenName);
             }
 
             @Override
@@ -63,7 +65,10 @@ public class TwitterConnect {
             {
                 Log.e("TWITTER_CONNECT_ERROR", exception.getMessage());
                 exception.printStackTrace();
-                callback.get().setFailed(null);
+                callback.get().setFailed(
+                        exception.getMessage().contains("Status: 429")
+                                ? null
+                                : username);
             }
         });
     }
