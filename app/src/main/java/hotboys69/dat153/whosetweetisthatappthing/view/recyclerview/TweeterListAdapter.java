@@ -160,9 +160,9 @@ public class TweeterListAdapter extends BaseExpandableListAdapter {
                     ? getAddTweeterView(parent, categories.get(groupPosition))
                     : new View(view.getContext());
         }
-        if (childPosition % 2 == 0) {
+        if (childPosition % 2 == 1) {
             view.setBackgroundColor(ContextCompat
-                    .getColor(parent.getContext(), R.color.twitterOfficial));
+                    .getColor(parent.getContext(), R.color.twitterOfficialLight));
         }
 
         Tweeter tweeter = getChild(groupPosition, childPosition - 1);

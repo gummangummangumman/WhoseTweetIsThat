@@ -3,12 +3,14 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
     <color name="twitterOfficial">#1da1f2</color>
     <color name="twitterOfficialLight">#e1e8ed</color>
     <color name="twitterOfficialWhite">#f5f8fa</color>
     <color name="twitterOfficialBlack">#14171a</color>
     <color name="twitterOfficialLightGrey">#aab8c2</color>
     <color name="twitterOfficialDarkGrey">#657786</color>
+
     <color name="correctAnswerGreen">#07ff35</color>
     <color name="wrongAnswerRed">#ff0400</color>
     <color name="animateCard">#a3d9ff</color>
