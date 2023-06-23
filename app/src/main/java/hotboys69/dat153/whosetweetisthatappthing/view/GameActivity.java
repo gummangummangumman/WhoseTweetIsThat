@@ -83,6 +83,8 @@ public class GameActivity extends AppCompatActivity {
         button3 = setOnClick(button3);
         button4 = setOnClick(button4);
 
+        disableAllButtons();
+
         nextButton = findViewById(R.id.next_button);
 
         tweetView = findViewById(R.id.tweet_view);
@@ -125,12 +127,13 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * should be called when the main tweet failed
+     *
      * @param offendingUsername The username of the user who could not load a tweet,
      *                          if there is one. Null if there was another problem.
      */
     public void setFailed(@Nullable String offendingUsername)
     {
-        if (offendingUsername==null) {
+        if (offendingUsername == null) {
             setTweet(getString(R.string.load_tweet_error));
         } else {
             setTweet(getString(R.string.tweet_error, offendingUsername));
@@ -153,6 +156,7 @@ public class GameActivity extends AppCompatActivity {
             String withoutLink = tweet.split("http")[0];
 
             tweetView.setText(withoutLink);
+            enableAllButtons();
         }
     }
 
@@ -270,10 +274,6 @@ public class GameActivity extends AppCompatActivity {
         button2.setBackgroundColor(twitterWhite);
         button3.setBackgroundColor(twitterWhite);
         button4.setBackgroundColor(twitterWhite);
-        button1.setEnabled(true);
-        button2.setEnabled(true);
-        button3.setEnabled(true);
-        button4.setEnabled(true);
         button1.setText("");
         button2.setText("");
         button3.setText("");
@@ -291,7 +291,15 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public void disableAllButtons()
+    private void enableAllButtons()
+    {
+        button1.setEnabled(true);
+        button2.setEnabled(true);
+        button3.setEnabled(true);
+        button4.setEnabled(true);
+    }
+
+    private void disableAllButtons()
     {
         button1.setEnabled(false);
         button2.setEnabled(false);
@@ -300,7 +308,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
 
-    public void loseGame()
+    private void loseGame()
     {
         Intent loseIntent = new Intent(this, LoseActivity.class);
         loseIntent.putExtra("score", score);

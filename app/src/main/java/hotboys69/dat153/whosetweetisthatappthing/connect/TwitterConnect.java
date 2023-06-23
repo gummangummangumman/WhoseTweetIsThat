@@ -27,7 +27,7 @@ public class TwitterConnect {
      */
     public static void setUserInformation(final String username, GameActivity view)
     {
-        final WeakReference<GameActivity> callback = new WeakReference<GameActivity>(view);
+        final WeakReference<GameActivity> callback = new WeakReference<>(view);
         TwitterApiClient twitterApiClient = TwitterCore.getInstance().getApiClient();
         StatusesService statusesService = twitterApiClient.getStatusesService();
         Call<List<Tweet>> call = statusesService
@@ -49,7 +49,7 @@ public class TwitterConnect {
                         result.data.get(0).user.screenName);
 
                 if (result.data.get(0).user.screenName
-                        .equals(callback.get().correctUserName)) {
+                        .equalsIgnoreCase(callback.get().correctUserName)) {
                     try {
                         String randomTweet = RandomTweetPicker.getRandomTweet(result.data);
                         callback.get().setTweet(randomTweet);
